@@ -1,0 +1,30 @@
+//comit de teste
+
+class Matrix {
+    //rows = linhas, coluns = colunas, elements= elementos
+    constructor(rows, cols, elements) {
+        var m = [];
+        for (var i = 0; i < rows; i++) {
+            m[i] = [];
+
+            for (var j = 0; j < cols; j++) {
+                m[i][j] = elements[i][j];
+
+            }
+        }
+
+        console.log(m)
+    }
+
+    get(i, j) {}
+
+    set(i, j, value) {}
+
+
+}
+var array = [
+    [2, 2, 3],
+    [1, 2, 3]
+]
+const matriz = new Matrix(2, 3, array);
+matriz.constructor
