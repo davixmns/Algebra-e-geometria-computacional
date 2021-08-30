@@ -47,3 +47,4 @@ var array = [
 ]
 const matriz = new Matrix(2, 3, array);
 matriz.constructor
+//commit teste
