@@ -8,16 +8,18 @@ class Matrix {
 
             for (var j = 0; j < cols; j++) {
                 m[i][j] = elements[i][j];
-
             }
         }
-
-        return m;
+        this.m = m;
     }
 
-    get(i, j) {}
+    get(i, j) {
+        return this.m[i][j];
+    }
 
-    set(i, j, value) {}
+    set(i, j, value) {
+        this.m[i][j] = value;
+    }
 
 }
 var array = [
@@ -25,6 +27,7 @@ var array = [
     [1, 5]
 ]
 var matriz = new Matrix(2, 2, array);
+console.log(matriz.get(0, 1))
 
 //var valor = new Array(1, 2, 3, 4, 5);
 //var indice = valor.indexOf(3);
