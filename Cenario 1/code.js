@@ -16,7 +16,9 @@ class Matrix {
         console.log(m)
     }
 
-    get(i, j) {}
+    get(i, j) {
+        return constructor(2, 3, array);
+    }
 
     set(i, j, value) {}
 
@@ -39,12 +41,3 @@ class Vector {
         v[i] = value
     }
 }
-
-
-var array = [
-    [2, 2, 3],
-    [1, 2, 3]
-]
-const matriz = new Matrix(2, 3, array);
-matriz.constructor
-//commit teste
