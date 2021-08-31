@@ -35,7 +35,7 @@ class Vector {
         console.log(v)
     }
     get(i) {
-        console.log(v[i])
+        return this.v[i]
     }
     set(i, value) {
         v[i] = value
