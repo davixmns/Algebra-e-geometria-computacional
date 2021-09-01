@@ -3,15 +3,15 @@ class Vector {
     //elements = elementos do veto
     constructor(dim, elements) {
         var v = []
+        elements = parseInt(lines.shift());
         for (i = 0; i < dim; i++) {
             v[i] = elements
         }
-        console.log(v)
     }
     get(i){
-        console.log(v[i])
+        this.v[i]
     }
     set(i, value){
-        v[i] = value
+        this.v[i] = value
     }
 }
