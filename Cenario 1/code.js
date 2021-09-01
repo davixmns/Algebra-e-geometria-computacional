@@ -42,3 +42,17 @@ class Vector {
         v[i] = value
     }
 }
+
+class LinearAlgebra {
+    constructor() {}
+
+    sum(a, b) {}
+
+    times(a, b) {}
+
+    dot(a, b) {}
+
+    gauss(a) {}
+
+    solve(a) {}
+}
