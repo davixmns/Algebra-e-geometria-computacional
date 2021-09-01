@@ -3,16 +3,23 @@
 class Matrix {
     //rows = linhas, coluns = colunas, elements= elementos
 
-    constructor(rows, cols, elements) {
+    onstructor(rows, cols, elements) {
+        this.rows = rows;
+        this.cols = cols
+        this.elements = elements
+        this.matriz = matriz;
+    }
+
+    criador() {
         var m = [];
-        for (var i = 0; i < rows; i++) {
+        for (var i = 0; i < this.rows; i++) {
             m[i] = [];
 
-            for (var j = 0; j < cols; j++) {
-                m[i][j] = elements[i][j];
+            for (var j = 0; j < this.cols; j++) {
+                m[i][j] = this.elements[i][j];
             }
         }
-        this.m = m;
+        return m;
     }
 
     get(i, j) {
