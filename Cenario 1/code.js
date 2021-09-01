@@ -28,8 +28,9 @@ class Vector {
     //dim = dimensão do Vetor
     //elements = elementos do veto
     constructor(dim, elements) {
-        var v = []
-        for (i = 0; i < dim; i++) {
+        var v = new Array(dim);
+
+        for (i = 0; i < v.length; i++) {
             v[i] = elements
         }
         console.log(v)
