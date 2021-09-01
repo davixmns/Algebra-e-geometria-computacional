@@ -26,20 +26,19 @@ class Matrix {
 }
 class Vector {
     //dim = dimensão do Vetor
-    //elements = elementos do veto
+    //elements = elementos do Vetor
     constructor(dim, elements) {
-        var v = new Array(dim);
-
-        for (i = 0; i < v.length; i++) {
+        var v = []
+        elements = parseInt(lines.shift());
+        for (i = 0; i < dim; i++) {
             v[i] = elements
         }
-        console.log(v)
     }
-    get(i) {
-        return this.v[i]
+    get(i){
+        this.v[i]
     }
-    set(i, value) {
-        v[i] = value
+    set(i, value){
+        this.v[i] = value
     }
 }
 
