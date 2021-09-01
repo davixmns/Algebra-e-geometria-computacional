@@ -3,11 +3,11 @@
 class Matrix {
     //rows = linhas, coluns = colunas, elements= elementos
 
-    onstructor(rows, cols, elements) {
+    constructor(rows, cols, elements) {
         this.rows = rows;
         this.cols = cols
         this.elements = elements
-        this.matriz = matriz;
+        this.matriz = 0;
     }
 
     criador() {
@@ -19,9 +19,8 @@ class Matrix {
                 m[i][j] = this.elements[i][j];
             }
         }
-        return m;
+        return this.m = m;
     }
-
     get(i, j) {
         return this.m[i][j];
     }

@@ -5,7 +5,7 @@ class Matrix {
         this.rows = rows;
         this.cols = cols
         this.elements = elements
-        this.matriz = matriz;
+        this.matriz = 0;
     }
 
     criador() {
@@ -17,7 +17,7 @@ class Matrix {
                 m[i][j] = this.elements[i][j];
             }
         }
-        return m;
+        return this.m = m;
     }
     get(i, j) {
         return this.m[i][j];
@@ -47,7 +47,7 @@ var array = [
 ]
 var matriz = new Matrix(2, 2, array);
 var teste = matriz.criador();
-console.log(teste)
+console.log(matriz.get(0, 0))
 
 //var valor = new Array(1, 2, 3, 4, 5);
 //var indice = valor.indexOf(3);
