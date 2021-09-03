@@ -20,11 +20,20 @@ class Matrix {
         return this.m = m;
     }
     get(i, j) {
-        return this.m[i][j];
+        if (i > this.rows || j > this.cols) {
+            return console.log("Parametro invalido")
+        } else {
+            return this.m[i][j];
+        }
+
     }
 
     set(i, j, value) {
-        this.m[i][j] = value;
+        if (i > this.rows || j > this.cols) {
+            return console.log("Parametro invalido")
+        } else {
+            return this.m[i][j] = value;
+        }
     }
 
 }
@@ -47,7 +56,8 @@ var array = [
 ]
 var matriz = new Matrix(2, 2, array);
 var teste = matriz.criador();
-console.log(matriz.get(0, 0))
+matriz.set(0, 0, 5)
+console.log(matriz)
 
 //var valor = new Array(1, 2, 3, 4, 5);
 //var indice = valor.indexOf(3);

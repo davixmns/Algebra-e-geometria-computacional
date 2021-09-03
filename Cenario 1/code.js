@@ -22,11 +22,20 @@ class Matrix {
         return this.m = m;
     }
     get(i, j) {
-        return this.m[i][j];
+        if (i > this.rows || j > this.cols) {
+            return console.log("Parametro invalido")
+        } else {
+            return this.m[i][j];
+        }
+
     }
 
     set(i, j, value) {
-        this.m[i][j] = value;
+        if (i > this.rows || j > this.cols) {
+            return console.log("Parametro invalido")
+        } else {
+            return this.m[i][j] = value;
+        }
     }
 
 }
