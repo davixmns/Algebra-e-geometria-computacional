@@ -27,17 +27,26 @@ class Matrix {
 
 class Vector {
     //dim = dimensão do Vetor
-    //elements = elementos do Vetor
+    //elements = elementos do veto
+    //objeto da classe = vetor
     constructor(dim, elements) {
+        this.dim = dim
+        this. elements = elements
+        this.vetor = 0
+    }
+
+    criador() {
         var v = []
-        for (i = 0; i < dim; i++) {
-            v[i] = elements
+        for (var i = 0; i < this.dim; i++) {
+            v[i] = this.elements
         }
+        return this.v = v;
     }
-    get(i) {
-        this.v[i]
+
+    get(i){
+        return this.v[i]
     }
-    set(i, value) {
+    set(i, value){
         this.v[i] = value
     }
 }
