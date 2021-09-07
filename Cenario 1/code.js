@@ -57,10 +57,18 @@ class Vector {
     }
 
     get(i) {
-        return this.v[i]
+        if(i > this.dim){
+            return console.log("Parâmetro inválido")
+        }else{
+            return this.v[i]
+        }
     }
     set(i, value) {
-        this.v[i] = value
+        if(i > this.v.length){
+            return console.log("Parâmetro inválido")
+        } else {
+            this.v[i] = value
+        }
     }
 }
 
