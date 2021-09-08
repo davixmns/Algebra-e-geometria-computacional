@@ -3,8 +3,8 @@ class Matrix {
 
     constructor(rows, cols, elements) {
         this.rows = rows;
-        this.cols = cols
-        this.elements = elements
+        this.cols = cols;
+        this.elements = elements;
         this.matriz = 0;
     }
 
@@ -68,7 +68,19 @@ class Vector {
 }
 
 class LinearAlgebra {
-    constructor() {}
+    constructor(objeto1, objeto2) {
+      this.objeto1 = objeto1;
+      this.objeto2 = objeto2;
+    }
+    // objeto1: objeto de Matrix ou Vector
+    // objeto2: objeto de Matrix ou Vector
+
+    transpose(objeto1) {
+      var o = this.objeto1;
+      var t = [];
+      t = reverse(o);
+      return this.t;
+    }
 
     sum(a, b) {}
 
