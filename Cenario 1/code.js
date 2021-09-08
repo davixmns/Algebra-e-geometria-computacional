@@ -27,7 +27,6 @@ class Matrix {
         }
 
     }
-
     set(i, j, value) {
         if (i > this.rows || j > this.cols) {
             return console.log("Parametro invalido")
@@ -35,7 +34,6 @@ class Matrix {
             return this.m[i][j] = value;
         }
     }
-
 }
 
 class Vector {
