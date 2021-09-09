@@ -23,4 +23,4 @@ class LinearAlgebra {
     solve(a) {}
 
 }
-console.log(transpose);
+console.log("transpose");
