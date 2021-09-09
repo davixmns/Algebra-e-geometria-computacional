@@ -57,14 +57,28 @@ class LinearAlgebra {
     }
 
     sum(a, b) {
-        var aux = [];
-        for (var i = 0; i < a.length; i++) {
-            aux[i] = [];
-            for (var x = 0; x < a[0].length; x++) {
-                aux[i][x] = a[i][x] + b[i][x]
-            }
+        if (a.length > 0) {
+            var linhas = a.length;
+            var colunas = a[0].length;
         }
-        return aux;
+        var aux = [];
+        if (colunas > 0) {
+
+            for (var i = 0; i < linhas; i++) {
+                aux[i] = [];
+                for (var x = 0; x < colunas; x++) {
+                    aux[i][x] = a[i][x] + b[i][x]
+                }
+            }
+
+            return aux;
+        } else if (colunas < 1) {
+            for (y = 0; y < linhas; i++) {
+                aux[y] = a[y] + b[y]
+            }
+
+            return aux;
+        }
     }
 
     times(a, b) {}
@@ -81,12 +95,15 @@ var array = [
     [7, 5]
 ]
 var matriz1 = new Matrix(2, 2, array);
-var matriz2 = new Matrix(2, 2, array)
+var matriz2 = new Matrix(2, 2, array);
+matriz1 = matriz1.criador();
+matriz2 = matriz2.criador();
+var vertor = [1, 2, 3]
 var op = new LinearAlgebra(1, 2)
 
-
-
-console.log(op.sum(matriz1.criador(), matriz2.criador()))
+//console.log(op.sum(matriz1, matriz2))
+//console.log(typeof (vertor[0].length) == undefined)
+console.log(Array.isArray(matriz1))
 
 //var valor = new Array(1, 2, 3, 4, 5);
 //var indice = valor.indexOf(3);
