@@ -8,6 +8,8 @@ class Matrix {
         this.matriz = 0;
     }
 
+
+
     criador() {
         var m = [];
         for (var i = 0; i < this.rows; i++) {
@@ -56,10 +58,10 @@ class LinearAlgebra {
 
     sum(a, b) {
         var aux = [];
-        for (var i = 0; i < a.rows; i++) {
+        for (var i = 0; i < a.length; i++) {
             aux[i] = [];
-            for (var x = 0; x < b.cols; x++) {
-                aux[i][x] = a[i][x] + b[i][x];
+            for (var x = 0; x < a[0].length; x++) {
+                aux[i][x] = a[i][x] + b[i][x]
             }
         }
         return aux;
@@ -84,7 +86,7 @@ var op = new LinearAlgebra(1, 2)
 
 
 
-console.log(op.sum(matriz1, matriz2))
+console.log(op.sum(matriz1.criador(), matriz2.criador()))
 
 //var valor = new Array(1, 2, 3, 4, 5);
 //var indice = valor.indexOf(3);
