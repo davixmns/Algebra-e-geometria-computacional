@@ -67,9 +67,9 @@ class Vector {
     }
 }
 
-class LinearAlgebra extends Matrix {
-    constructor(rows, cols, elements, objeto1, objeto2) {
-        super(rows, cols, elements);
+class LinearAlgebra {
+    constructor(objeto1, objeto2) {
+
         this.objeto1 = objeto1;
         this.objeto2 = objeto2;
     }
@@ -85,13 +85,13 @@ class LinearAlgebra extends Matrix {
 
     sum(a, b) {
         var aux = [];
-        for (var i = 0; i < this.rows; i++) {
+        for (var i = 0; i < a.length; i++) {
             aux[i] = [];
-
-            for (var j = 0; j < this.cols; j++) {
-                aux[i][j] = a[i][j] + b[i][j];
+            for (var x = 0; x < a[0].length; x++) {
+                aux[i][x] = a[i][x] + b[i][x]
             }
         }
+        return aux;
     }
 
     times(a, b) {}

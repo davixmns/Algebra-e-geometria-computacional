@@ -77,8 +77,8 @@ class LinearAlgebra {
 }
 
 var array = [
-    [2, 3],
-    [1, 5]
+    [3, 5],
+    [7, 5]
 ]
 var matriz1 = new Matrix(2, 2, array);
 var matriz2 = new Matrix(2, 2, array)
