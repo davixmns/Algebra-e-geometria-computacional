@@ -52,14 +52,14 @@ class Vector {
     }
 
     get(i) { //método que pega o valor guardado no índice digitado
-        if(i > this.dim){ //se indice digitado for maior que a dimensão do array
+        if (i > this.dim) { //se indice digitado for maior que a dimensão do array
             return console.log("Parâmetro inválido")
-        }else{
+        } else {
             return this.v[i]
         }
     }
     set(i, value) { //método que substitui no índice i o valor digitado
-        if(i > this.dim){ //se o indice digitado for maior que a dimensão do array
+        if (i > this.dim) { //se o indice digitado for maior que a dimensão do array
             return console.log("Parâmetro inválido")
         } else {
             this.v[i] = value
@@ -67,22 +67,32 @@ class Vector {
     }
 }
 
-class LinearAlgebra {
-    constructor(objeto1, objeto2) {
-      this.objeto1 = objeto1;
-      this.objeto2 = objeto2;
+class LinearAlgebra extends Matrix {
+    constructor(rows, cols, elements, objeto1, objeto2) {
+        super(rows, cols, elements);
+        this.objeto1 = objeto1;
+        this.objeto2 = objeto2;
     }
     // objeto1: objeto de Matrix ou Vector
     // objeto2: objeto de Matrix ou Vector
 
     transpose(objeto1) {
-      var o = this.objeto1;
-      var t = [];
-      t = reverse(o);
-      return this.t;
+        var o = this.objeto1;
+        var t = [];
+        t = reverse(o);
+        return this.t;
     }
 
-    sum(a, b) {}
+    sum(a, b) {
+        var aux = [];
+        for (var i = 0; i < this.rows; i++) {
+            aux[i] = [];
+
+            for (var j = 0; j < this.cols; j++) {
+                aux[i][j] = a[i][j] + b[i][j];
+            }
+        }
+    }
 
     times(a, b) {}
 
