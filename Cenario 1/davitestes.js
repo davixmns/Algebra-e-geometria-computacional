@@ -1,41 +1,54 @@
-class Vector {
+class LinearAlgebra {
+    constructor(objeto1, objeto2) {
+        this.objeto1 = objeto1;
+        this.objeto2 = objeto2;
+    }
+    // objeto1: objeto de Matrix ou Vector
+    // objeto2: objeto de Matrix ou Vector
 
-    constructor(dim, elements) { //dim = dimensão do array | elements = elementos
-        this.dim = dim
-        this.elements = elements
+    transpose(objeto1) {
+        var o = this.objeto1;
+        var t = [];
+        t = reverse(o);
+        return this.t;
     }
 
-    criador() { //método que cria o vetor
-        var v = []
-        for (var i = 0; i < this.dim; i++) {
-            v[i] = this.elements
-        }
-        return this.v = v;
+    sum(a, b) {
+        if (Array.isArray(a) == true && Array.isArray(b) == true) {
+
+            var linhas = a.length;
+            var colunas = a[0].length;
+            var linahsb = b.length;
+            var colunasb = b[0].length;
+
+            if (linhas == linahsb && colunas == colunasb) {
+                var aux = [];
+                if (colunas > 0) {
+
+                    for (var i = 0; i < linhas; i++) {
+                        aux[i] = [];
+                        for (var x = 0; x < colunas; x++) {
+                            aux[i][x] = a[i][x] + b[i][x]
+                        }
+                    }
+
+                    return aux;
+                } else if (colunas == undefined) {
+                    for (var y = 0; y < linhas; y++) {
+                        aux[y] = a[y] + b[y]
+                    }
+
+                    return aux;
+                }
+            } else console.log("Operação impossível")
+        } else console.log("Parametro invalido")
     }
 
-    get(i) { //método que pega o valor guardado no índice digitado
-        if(i > this.dim){ //se indice digitado for maior que a dimensão do array
-            return console.log("Parâmetro inválido")
-        }else{
-            return this.v[i]
-        }
-    }
-    set(i, value) { //método que substitui no índice i o valor digitado
-        if(i > this.dim){ //se o indice digitado for maior que a dimensão do array
-            return console.log("Parâmetro inválido")
-        } else {
-            this.v[i] = value
-        }
-    }
+    times(a, b) {}
+
+    dot(a, b) {}
+
+    gauss(a) {}
+
+    solve(a) {}
 }
-//ÁREA DE EXECUÇÃO 
-var vetor = new Vector(3, 0); //instanciação do objeto com parâmetros do método construtor
-vetor.criador() //Criação do array
-console.log("Antes: " + vetor.v) //exibindo array do objeto vetor do jeito que foi criado
-vetor.set(2, 4) //colocando no indice 2 do array o valor 4
-console.log("Depois: " + vetor.v) // exibindo como ficou
-/* 
-vetor = nome do objeto
-criador, get e set = métodos
-(3, elements) = parâmetros do método construtor
-*/

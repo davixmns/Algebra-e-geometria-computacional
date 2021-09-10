@@ -76,7 +76,6 @@ class Vector {
 
 class LinearAlgebra {
     constructor(objeto1, objeto2) {
-
         this.objeto1 = objeto1;
         this.objeto2 = objeto2;
     }
