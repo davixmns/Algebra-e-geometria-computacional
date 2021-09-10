@@ -3,21 +3,26 @@ class Matrix {
 
     constructor(rows, cols, elements) {
         this.rows = rows;
-        this.cols = cols;
-        this.elements = elements;
+        this.cols = cols
+        this.elements = elements
         this.matriz = 0;
     }
 
-    criador() {
-        var m = [];
-        for (var i = 0; i < this.rows; i++) {
-            m[i] = [];
 
-            for (var j = 0; j < this.cols; j++) {
-                m[i][j] = this.elements[i][j];
+
+    criador() {
+        if (this.elements.length == this.rows && this.elements[0].length == this.cols) {
+            var m = [];
+            for (var i = 0; i < this.rows; i++) {
+                m[i] = [];
+
+                for (var j = 0; j < this.cols; j++) {
+                    m[i][j] = this.elements[i][j];
+                }
             }
-        }
-        return this.m = m;
+            return this.m = m;
+        } else console.log('Array nao suportado')
+
     }
     get(i, j) {
         if (i > this.rows || j > this.cols) {
@@ -27,6 +32,7 @@ class Matrix {
         }
 
     }
+
     set(i, j, value) {
         if (i > this.rows || j > this.cols) {
             return console.log("Parametro invalido")
@@ -34,6 +40,7 @@ class Matrix {
             return this.m[i][j] = value;
         }
     }
+
 }
 
 class Vector {
@@ -84,14 +91,34 @@ class LinearAlgebra {
     }
 
     sum(a, b) {
-        var aux = [];
-        for (var i = 0; i < a.length; i++) {
-            aux[i] = [];
-            for (var x = 0; x < a[0].length; x++) {
-                aux[i][x] = a[i][x] + b[i][x]
-            }
-        }
-        return aux;
+        if (Array.isArray(a) == true && Array.isArray(b) == true) {
+
+            var linhas = a.length;
+            var colunas = a[0].length;
+            var linahsb = b.length;
+            var colunasb = b[0].length;
+
+            if (linhas == linahsb && colunas == colunasb) {
+                var aux = [];
+                if (colunas > 0) {
+
+                    for (var i = 0; i < linhas; i++) {
+                        aux[i] = [];
+                        for (var x = 0; x < colunas; x++) {
+                            aux[i][x] = a[i][x] + b[i][x]
+                        }
+                    }
+
+                    return aux;
+                } else if (colunas == undefined) {
+                    for (var y = 0; y < linhas; y++) {
+                        aux[y] = a[y] + b[y]
+                    }
+
+                    return aux;
+                }
+            } else console.log("Operação impossível")
+        } else console.log("Parametro invalido")
     }
 
     times(a, b) {}

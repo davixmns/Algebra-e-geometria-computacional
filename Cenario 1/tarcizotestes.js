@@ -11,15 +11,18 @@ class Matrix {
 
 
     criador() {
-        var m = [];
-        for (var i = 0; i < this.rows; i++) {
-            m[i] = [];
+        if (this.elements.length == this.rows && this.elements[0].length == this.cols) {
+            var m = [];
+            for (var i = 0; i < this.rows; i++) {
+                m[i] = [];
 
-            for (var j = 0; j < this.cols; j++) {
-                m[i][j] = this.elements[i][j];
+                for (var j = 0; j < this.cols; j++) {
+                    m[i][j] = this.elements[i][j];
+                }
             }
-        }
-        return this.m = m;
+            return this.m = m;
+        } else console.log('Array nao suportado')
+
     }
     get(i, j) {
         if (i > this.rows || j > this.cols) {
@@ -57,28 +60,34 @@ class LinearAlgebra {
     }
 
     sum(a, b) {
-        if (a.length > 0) {
+        if (Array.isArray(a) == true && Array.isArray(b) == true) {
+
             var linhas = a.length;
             var colunas = a[0].length;
-        }
-        var aux = [];
-        if (colunas > 0) {
+            var linahsb = b.length;
+            var colunasb = b[0].length;
 
-            for (var i = 0; i < linhas; i++) {
-                aux[i] = [];
-                for (var x = 0; x < colunas; x++) {
-                    aux[i][x] = a[i][x] + b[i][x]
+            if (linhas == linahsb && colunas == colunasb) {
+                var aux = [];
+                if (colunas > 0) {
+
+                    for (var i = 0; i < linhas; i++) {
+                        aux[i] = [];
+                        for (var x = 0; x < colunas; x++) {
+                            aux[i][x] = a[i][x] + b[i][x]
+                        }
+                    }
+
+                    return aux;
+                } else if (colunas == undefined) {
+                    for (var y = 0; y < linhas; y++) {
+                        aux[y] = a[y] + b[y]
+                    }
+
+                    return aux;
                 }
-            }
-
-            return aux;
-        } else if (colunas < 1) {
-            for (y = 0; y < linhas; i++) {
-                aux[y] = a[y] + b[y]
-            }
-
-            return aux;
-        }
+            } else console.log("Operação impossível")
+        } else console.log("Parametro invalido")
     }
 
     times(a, b) {}
@@ -91,19 +100,21 @@ class LinearAlgebra {
 }
 
 var array = [
-    [3, 5],
-    [7, 5]
+    [1, 2],
+    [3, 4]
+]
+
+var array2 = [
+    [1, 2, 3],
+    [3, 4, 3]
 ]
 var matriz1 = new Matrix(2, 2, array);
-var matriz2 = new Matrix(2, 2, array);
+var matriz2 = new Matrix(2, 2, array2);
 matriz1 = matriz1.criador();
 matriz2 = matriz2.criador();
 var vertor = [1, 2, 3]
 var op = new LinearAlgebra(1, 2)
-
+console.log(matriz2)
+//console.log(matriz2)
 //console.log(op.sum(matriz1, matriz2))
-//console.log(typeof (vertor[0].length) == undefined)
-console.log(Array.isArray(matriz1))
-
-//var valor = new Array(1, 2, 3, 4, 5);
-//var indice = valor.indexOf(3);
+//console.log(vertor[0].length < 1)
