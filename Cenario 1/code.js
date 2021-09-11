@@ -128,3 +128,7 @@ class LinearAlgebra {
 
     solve(a) {}
 }
+var e = 3
+var obj = new Vector(3, e)
+obj.criador()
+console.log(obj.v)

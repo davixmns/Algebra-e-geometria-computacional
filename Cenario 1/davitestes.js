@@ -1,54 +1,44 @@
-class LinearAlgebra {
-    constructor(objeto1, objeto2) {
-        this.objeto1 = objeto1;
-        this.objeto2 = objeto2;
-    }
-    // objeto1: objeto de Matrix ou Vector
-    // objeto2: objeto de Matrix ou Vector
+class Matrix {
+    //rows = linhas, coluns = colunas, elements= elementos
 
-    transpose(objeto1) {
-        var o = this.objeto1;
-        var t = [];
-        t = reverse(o);
-        return this.t;
+    constructor(rows, cols, elements) {
+        this.rows = rows;
+        this.cols = cols
+        this.elements = elements
+        this.matriz = 0;
     }
 
-    sum(a, b) {
-        if (Array.isArray(a) == true && Array.isArray(b) == true) {
 
-            var linhas = a.length;
-            var colunas = a[0].length;
-            var linahsb = b.length;
-            var colunasb = b[0].length;
 
-            if (linhas == linahsb && colunas == colunasb) {
-                var aux = [];
-                if (colunas > 0) {
+    criador() {
+        if (this.elements.length == this.rows && this.elements[0].length == this.cols) {
+            var m = [];
+            for (var i = 0; i < this.rows; i++) {
+                m[i] = [];
 
-                    for (var i = 0; i < linhas; i++) {
-                        aux[i] = [];
-                        for (var x = 0; x < colunas; x++) {
-                            aux[i][x] = a[i][x] + b[i][x]
-                        }
-                    }
-
-                    return aux;
-                } else if (colunas == undefined) {
-                    for (var y = 0; y < linhas; y++) {
-                        aux[y] = a[y] + b[y]
-                    }
-
-                    return aux;
+                for (var j = 0; j < this.cols; j++) {
+                    m[i][j] = this.elements[i][j];
                 }
-            } else console.log("Operação impossível")
-        } else console.log("Parametro invalido")
+            }
+            return this.m = m;
+        } else console.log('Array nao suportado')
+
+    }
+    get(i, j) {
+        if (i > this.rows || j > this.cols) {
+            return console.log("Parametro invalido")
+        } else {
+            return this.m[i][j];
+        }
+
     }
 
-    times(a, b) {}
+    set(i, j, value) {
+        if (i > this.rows || j > this.cols) {
+            return console.log("Parametro invalido")
+        } else {
+            return this.m[i][j] = value;
+        }
+    }
 
-    dot(a, b) {}
-
-    gauss(a) {}
-
-    solve(a) {}
 }
