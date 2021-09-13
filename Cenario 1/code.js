@@ -123,27 +123,37 @@ class LinearAlgebra {
     times(a, b) {}
 
     dot(a, b) {
-        var linhas = a.length,
-            colunas = a[0].length,
-            linahsb = b.length,
-            colunasb = b[0].length;
 
-        var m = [];
-        for (var x = 0; x < linhas; x++) {
-            m[x] = [];
-            for (var y = 0; y < colunasb; y++) {
-                m[x][y] = 0;
-            }
-        }
-        for (var i = 0; i < linhas; i++) {
-            for (var j = 0; j < colunasb; j++) {
-                for (var k = 0; k < colunas; k++) {
-                    m[i][j] = m[i][j] + a[i][k] * b[k][j];
+
+        if (Array.isArray(a) == true && Array.isArray(b) == true && a[0].length != undefined && b[0].length != undefined) {
+            var linhas = a.length,
+                colunas = a[0].length,
+                linahsb = b.length,
+                colunasb = b[0].length;
+            if (colunas == linahsb) {
+                var m = [];
+                for (var x = 0; x < linhas; x++) {
+                    m[x] = [];
+                    for (var y = 0; y < colunasb; y++) {
+                        m[x][y] = 0;
+                    }
                 }
-            }
-        }
+                for (var i = 0; i < linhas; i++) {
+                    for (var j = 0; j < colunasb; j++) {
+                        for (var k = 0; k < colunas; k++) {
+                            m[i][j] = m[i][j] + a[i][k] * b[k][j];
+                        }
+                    }
+                }
 
-        return m;
+                return m;
+            } else {
+                return " Operação impossivel "
+            }
+
+        } else {
+            return "Aceito apenas matrizes"
+        }
 
     }
 
