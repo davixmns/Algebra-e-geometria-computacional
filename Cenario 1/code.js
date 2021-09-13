@@ -120,19 +120,7 @@ class LinearAlgebra {
         } else console.log("Parametro invalido")
     }
 
-    times(a, b) {
-      if(Array.isArray(a) == true && Array.isArray(b) == true){
-        int rows = a.length; 
-        int cols = b[0].length; 
-        double[][] c = new double[rows][cols];
-        for(int i = 0; i < rows; i++){
-            for(int j = 0; j < cols; j++){
-                for(int k = 0; k < n; k++){
-                    c[i][j] = c[i][j] + a[i][k] * b[k][j];
-                    return c;
-      }
-      else console.log("Operação impossível")
-    }
+    times(a, b) {}
 
     dot(a, b) {
 
