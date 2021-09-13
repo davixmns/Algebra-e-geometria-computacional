@@ -120,11 +120,34 @@ class LinearAlgebra {
         } else console.log("Parametro invalido")
     }
 
-    times(a, b) { }
+    times(a, b) {}
 
-    dot(a, b) { }
+    dot(a, b) {
+        var linhas = a.length,
+            colunas = a[0].length,
+            linahsb = b.length,
+            colunasb = b[0].length;
 
-    gauss(a) { }
+        var m = [];
+        for (var x = 0; x < linhas; x++) {
+            m[x] = [];
+            for (var y = 0; y < colunasb; y++) {
+                m[x][y] = 0;
+            }
+        }
+        for (var i = 0; i < linhas; i++) {
+            for (var j = 0; j < colunasb; j++) {
+                for (var k = 0; k < colunas; k++) {
+                    m[i][j] = m[i][j] + a[i][k] * b[k][j];
+                }
+            }
+        }
 
-    solve(a) { }
+        return m;
+
+    }
+
+    gauss(a) {}
+
+    solve(a) {}
 }
