@@ -105,16 +105,16 @@ var array = [
 ]
 
 var array2 = [
-    [1, 2, 3],
-    [3, 4, 3]
+    [1, 2],
+    [3, 4]
 ]
 var matriz1 = new Matrix(2, 2, array);
 var matriz2 = new Matrix(2, 2, array2);
 matriz1 = matriz1.criador();
 matriz2 = matriz2.criador();
-var vertor = [1, 2, 3]
-var op = new LinearAlgebra(1, 2)
-console.log(matriz2)
-//console.log(matriz2)
-//console.log(op.sum(matriz1, matriz2))
+var op = new LinearAlgebra(matriz1, matriz2)
+
+
+
+console.log(op.sum(matriz1, matriz2))
 //console.log(vertor[0].length < 1)
