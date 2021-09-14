@@ -53,7 +53,8 @@ class Vector {
     criador() { //método que cria o vetor
         var v = []
         for (var i = 0; i < this.dim; i++) {
-            v[i] = this.elements
+            v[i] = this.elents[j]
+            j++
         }
         return this.v = v;
     }
@@ -161,3 +162,11 @@ class LinearAlgebra {
 
     solve(a) {}
 }
+var elemVector = 1
+var objVector = new Vector(3, elem)
+var objMatrix = new Matrix()
+function criarVetor(){
+    objVector.criador()
+    return console.log(objVector.v)
+}
+criarVetor()
