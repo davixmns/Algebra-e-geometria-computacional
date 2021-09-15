@@ -82,12 +82,33 @@ class LinearAlgebra {
     // objeto1: objeto de Matrix ou Vector
     // objeto2: objeto de Matrix ou Vector
 
-    transpose(objeto1) {
-        var o = this.objeto1;
-        var t = [];
-        t = reverse(o);
-        return this.t;
-    }
+    transpose(a) {
+
+      var linhas = a.length;
+      var colunas = a[0].length;
+
+        if (Array.isArray(a) == true && colunas != undefined )
+        {
+          var newArray = [];
+          for(var i = 0; i < a.length; i++){
+           newArray.push([]);
+         };
+
+           for(var i = 0; i < a.length; i++){
+           for(var j = 0; j < a.length; j++){
+            newArray[j].push(a[i][j]);
+          };
+        };
+    return newArray;
+      }
+        else if (Array.isArray(a) == true && colunas == undefined)
+        {
+          var resul = [];
+          resul = a.reverse();
+          return resul;
+        }
+        else console.log("operação impossivel")
+      }
 
     sum(a, b) {
         if (Array.isArray(a) == true && Array.isArray(b) == true) {
