@@ -133,18 +133,20 @@ class LinearAlgebra {
 }
 
 var array = [
-    [1, 2],
-    [3, 4],
+    [1, 2, 3],
+    [3, 4, 3],
+    [1, 2, 3]
 
 ]
 
 var array2 = [
-    [1, 2],
-    [3, 4]
+    [1, 2, 3],
+    [3, 4, 3],
+    [1, 2, 3]
 ]
-var matriz1 = new Matrix(2, 2, array);
-var matriz2 = new Matrix(2, 2, array2);
+var matriz1 = new Matrix(3, 3, array);
+var matriz2 = new Matrix(3, 3, array2);
 matriz1 = matriz1.criador();
 matriz2 = matriz2.criador();
-var op = new LinearAlgebra(matriz1, matriz2);
-console.log(op.dot(matriz1, matriz2))
+//var op = new LinearAlgebra(matriz1, matriz2);
+//console.log(op.dot(matriz1, matriz2))

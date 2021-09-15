@@ -84,32 +84,28 @@ class LinearAlgebra {
 
     transpose(a) {
 
-      var linhas = a.length;
-      var colunas = a[0].length;
 
-        if (Array.isArray(a) == true && colunas != undefined )
-        {
-          var newArray = [];
-          for(var i = 0; i < a.length; i++){
-           newArray.push([]);
-         };
+        if (Array.isArray(a) == true && a[0].length != undefined) {
+            var linhas = a.length;
+            var colunas = a[0].length;
+            var newArray = [];
+            for (var i = 0; i < a.length; i++) {
+                newArray.push([]);
+            };
 
-           for(var i = 0; i < a.length; i++){
-           for(var j = 0; j < a.length; j++){
-            newArray[j].push(a[i][j]);
-          };
-        };
-    return newArray;
-      }
-        else if (Array.isArray(a) == true && colunas == undefined)
-        {
-          var resul = [];
-          resul = a.reverse();
-          return resul;
-          console.log("teste2");
-        }
-        else console.log("operação impossivel")
-      }
+            for (var i = 0; i < a.length; i++) {
+                for (var j = 0; j < a.length; j++) {
+                    newArray[j].push(a[i][j]);
+                };
+            };
+            return newArray;
+        } else if (Array.isArray(a) == true && a[0].length == undefined) {
+            var resul = [];
+            resul = a.reverse();
+            return resul;
+            console.log("teste2");
+        } else console.log("operação impossivel")
+    }
 
     sum(a, b) {
         if (Array.isArray(a) == true && Array.isArray(b) == true) {
@@ -186,12 +182,12 @@ class LinearAlgebra {
 
 //var array1 = [1, 2, 3, 4]
 
-  //var vetor1 = new Vector(4, array1);
-  //vetor1 = vetor1.criador();
-  //var op = new LinearAlgebra(vetor1);
-  //console.log(op.transpose(vetor1));
+//var vetor1 = new Vector(4, array1);
+//vetor1 = vetor1.criador();
+//var op = new LinearAlgebra(vetor1);
+//console.log(op.transpose(vetor1));
 
-  var array2 = [
+var array2 = [
     [1, 2, 3],
     [1, 2, 3],
     [1, 2, 3]
@@ -200,4 +196,3 @@ var matriz = new Matrix(3, 3, array2);
 matriz = matriz.criador();
 var op = new LinearAlgebra(matriz);
 console.log(op.transpose(matriz))
-
