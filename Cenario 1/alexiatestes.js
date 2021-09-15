@@ -3,21 +3,26 @@ class Matrix {
 
     constructor(rows, cols, elements) {
         this.rows = rows;
-        this.cols = cols;
-        this.elements = elements;
+        this.cols = cols
+        this.elements = elements
         this.matriz = 0;
     }
 
-    criador() {
-        var m = [];
-        for (var i = 0; i < this.rows; i++) {
-            m[i] = [];
 
-            for (var j = 0; j < this.cols; j++) {
-                m[i][j] = this.elements[i][j];
+
+    criador() {
+        if (this.elements.length == this.rows && this.elements[0].length == this.cols) {
+            var m = [];
+            for (var i = 0; i < this.rows; i++) {
+                m[i] = [];
+
+                for (var j = 0; j < this.cols; j++) {
+                    m[i][j] = this.elements[i][j];
+                }
             }
-        }
-        return this.m = m;
+            return this.m = m;
+        } else console.log('Array nao suportado')
+
     }
     get(i, j) {
         if (i > this.rows || j > this.cols) {
@@ -27,6 +32,7 @@ class Matrix {
         }
 
     }
+
     set(i, j, value) {
         if (i > this.rows || j > this.cols) {
             return console.log("Parametro invalido")
@@ -34,6 +40,7 @@ class Matrix {
             return this.m[i][j] = value;
         }
     }
+
 }
 
 class Vector {
@@ -52,14 +59,14 @@ class Vector {
     }
 
     get(i) { //método que pega o valor guardado no índice digitado
-        if(i > this.dim){ //se indice digitado for maior que a dimensão do array
+        if (i > this.dim) { //se indice digitado for maior que a dimensão do array
             return console.log("Parâmetro inválido")
-        }else{
+        } else {
             return this.v[i]
         }
     }
     set(i, value) { //método que substitui no índice i o valor digitado
-        if(i > this.dim){ //se o indice digitado for maior que a dimensão do array
+        if (i > this.dim) { //se o indice digitado for maior que a dimensão do array
             return console.log("Parâmetro inválido")
         } else {
             this.v[i] = value
@@ -67,36 +74,130 @@ class Vector {
     }
 }
 
-var vetor = new Vector(3, 0); //instanciação do objeto com parâmetros do método construtor
-vetor.criador() //Criação do array
-
-
 class LinearAlgebra {
     constructor(objeto1, objeto2) {
-      this.objeto1 = objeto1;
-      this.objeto2 = objeto2;
+        this.objeto1 = objeto1;
+        this.objeto2 = objeto2;
     }
     // objeto1: objeto de Matrix ou Vector
     // objeto2: objeto de Matrix ou Vector
 
-    transpose(objeto1) {
-      var o = this.objeto1;
-      var t = [];
-      t = reverse(o);
-      return this.t;
-    }
+    transpose(a) {
 
-    sum(a, b) {}
+      var linhas = a.length;
+      var colunas = a[0].length;
+
+        if (Array.isArray(a) == true && colunas != undefined )
+        {
+          var newArray = [];
+          for(var i = 0; i < a.length; i++){
+           newArray.push([]);
+         };
+
+           for(var i = 0; i < a.length; i++){
+           for(var j = 0; j < a.length; j++){
+            newArray[j].push(a[i][j]);
+          };
+        };
+    return newArray;
+      }
+        else if (Array.isArray(a) == true && colunas == undefined)
+        {
+          var resul = [];
+          resul = a.reverse();
+          return resul;
+          console.log("teste2");
+        }
+        else console.log("operação impossivel")
+      }
+
+    sum(a, b) {
+        if (Array.isArray(a) == true && Array.isArray(b) == true) {
+
+            var linhas = a.length;
+            var colunas = a[0].length;
+            var linahsb = b.length;
+            var colunasb = b[0].length;
+
+            if (linhas == linahsb && colunas == colunasb) {
+                var aux = [];
+                if (colunas > 0) {
+
+                    for (var i = 0; i < linhas; i++) {
+                        aux[i] = [];
+                        for (var x = 0; x < colunas; x++) {
+                            aux[i][x] = a[i][x] + b[i][x]
+                        }
+                    }
+
+                    return aux;
+                } else if (colunas == undefined) {
+                    for (var y = 0; y < linhas; y++) {
+                        aux[y] = a[y] + b[y]
+                    }
+
+                    return aux;
+                }
+            } else console.log("Operação impossível")
+        } else console.log("Parametro invalido")
+    }
 
     times(a, b) {}
 
-    dot(a, b) {}
+    dot(a, b) {
+
+
+        if (Array.isArray(a) == true && Array.isArray(b) == true && a[0].length != undefined && b[0].length != undefined) {
+            var linhas = a.length,
+                colunas = a[0].length,
+                linahsb = b.length,
+                colunasb = b[0].length;
+            if (colunas == linahsb) {
+                var m = [];
+                for (var x = 0; x < linhas; x++) {
+                    m[x] = [];
+                    for (var y = 0; y < colunasb; y++) {
+                        m[x][y] = 0;
+                    }
+                }
+                for (var i = 0; i < linhas; i++) {
+                    for (var j = 0; j < colunasb; j++) {
+                        for (var k = 0; k < colunas; k++) {
+                            m[i][j] = m[i][j] + a[i][k] * b[k][j];
+                        }
+                    }
+                }
+
+                return m;
+            } else {
+                return " Operação impossivel "
+            }
+
+        } else {
+            return "Aceito apenas matrizes"
+        }
+
+    }
 
     gauss(a) {}
 
     solve(a) {}
 }
 
-var transposta = new LinearAlgebra(vetor.v, 0);
-transposta.transpose();
-console.log(transposta.t);
+//var array1 = [1, 2, 3, 4]
+
+  //var vetor1 = new Vector(4, array1);
+  //vetor1 = vetor1.criador();
+  //var op = new LinearAlgebra(vetor1);
+  //console.log(op.transpose(vetor1));
+
+  var array2 = [
+    [1, 2, 3],
+    [1, 2, 3],
+    [1, 2, 3]
+]
+var matriz = new Matrix(3, 3, array2);
+matriz = matriz.criador();
+var op = new LinearAlgebra(matriz);
+console.log(op.transpose(matriz))
+
