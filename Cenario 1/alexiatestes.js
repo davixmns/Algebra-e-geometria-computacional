@@ -195,4 +195,4 @@ var array2 = [
 var matriz = new Matrix(3, 3, array2);
 matriz = matriz.criador();
 var op = new LinearAlgebra(matriz);
-console.log(op.transpose(matriz))
+console.log(op.transpose(1))
