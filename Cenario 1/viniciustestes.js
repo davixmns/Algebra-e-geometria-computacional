@@ -82,12 +82,33 @@ class LinearAlgebra {
     // objeto1: objeto de Matrix ou Vector
     // objeto2: objeto de Matrix ou Vector
 
-    transpose(objeto1) {
-        var o = this.objeto1;
-        var t = [];
-        t = reverse(o);
-        return this.t;
-    }
+    transpose(a) {
+
+      var linhas = a.length;
+      var colunas = a[0].length;
+
+        if (Array.isArray(a) == true && colunas != undefined )
+        {
+          var newArray = [];
+          for(var i = 0; i < a.length; i++){
+           newArray.push([]);
+         };
+
+           for(var i = 0; i < a.length; i++){
+           for(var j = 0; j < a.length; j++){
+            newArray[j].push(a[i][j]);
+          };
+        };
+    return newArray;
+      }
+        else if (Array.isArray(a) == true && colunas == undefined)
+        {
+          var resul = [];
+          resul = a.reverse();
+          return resul;
+        }
+        else console.log("operação impossivel")
+      }
 
     sum(a, b) {
         if (Array.isArray(a) == true && Array.isArray(b) == true) {
@@ -121,19 +142,68 @@ class LinearAlgebra {
     }
 
     times(a, b) {
-      if(Array.isArray(a) == true && Array.isArray(b) == true){
-        int rows = a.length; 
-        int cols = b[0].length; 
-        double[][] c = new double[rows][cols];
-        for(int i = 0; i < rows; i++){
-            for(int j = 0; j < cols; j++){
-                for(int k = 0; k < n; k++){
-                    c[i][j] = c[i][j] + a[i][k] * b[k][j];
-                    return c;
-      }
-      else console.log("Operação impossível")
-    }
+       if (Array.isArray(a) == true && Array.isArray(b) == true && a[0].length == undefined && b[0].length == undefined)
+       {     
+         if(a.length == b.length)
+         {
+           var linhas = a.length;
+           var resul = [];
 
+           for(var x = 0; x < linhas; x++)
+           {
+             resul[x] = a[x] * b[x];
+           }
+           return resul;
+         }
+         else
+         {
+           return " Operação impossivel "
+         }
+       }
+       else if(Array.isArray(a) == true && Array.isArray(b) == true && a[0].length != undefined && b[0].length != undefined) 
+       {
+         if(a.length == b.length && a[0].length == b[0].length)
+         {
+           var linhas = a.length;
+           var colunas = a[0].length;
+           var resul = [];
+
+           for(var x = 0; x < linhas; x++)
+           {
+             for(var y = 0; x < colunas; y++)
+             {
+               resul[x][y] = a[x][y] * b[x][y];
+             }
+           }
+           return resul;
+         }
+         else
+         {
+           return " Operação impossivel "
+         }
+       }
+      else if(Array.isArray(a) == false && Array.isArray(b) == true && b[0].length != undefined)
+         {
+           var linhas = b.length;
+           var colunas = b[0].length;
+           var num = a;
+           var resul = [];
+
+           for(var x = 0; x < linhas; x++)
+           {
+             for(var y = 0; x < colunas; y++)
+             {
+               resul[x][y] = num * b[x][y];
+             }
+           }
+           return resul;
+         }
+         else
+         {
+           return " Parametros inválidos "
+         }
+       }
+    
     dot(a, b) {
 
 
@@ -181,12 +251,12 @@ var array = [
 ]
 
 var array2 = [
-    [1, 2],
-    [3, 4]
+    [5, 6],
+    [7, 8]
 ]
 var matriz1 = new Matrix(2, 2, array);
 var matriz2 = new Matrix(2, 2, array2);
 matriz1 = matriz1.criador();
 matriz2 = matriz2.criador();
-var op = new LinearAlgebra(matriz1, matriz2);
-console.log(op.times(matriz1, matriz2))
+var teste = new LinearAlgebra(matriz1, matriz2);
+console.log(teste.times(matriz1, matriz2))
