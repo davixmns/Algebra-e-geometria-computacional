@@ -51,11 +51,19 @@ class Vector {
     }
 
     criador() { //método que cria o vetor
-        var v = []
-        for (var i = 0; i < this.dim; i++) {
-            v[i] = this.elements
+        if (this.elements.length == this.dim) {
+            var v = []
+            var j = 0;
+            for (var i = 0; i < this.dim; i++) {
+                v[i] = this.elements[j]
+                j++
+            }
+            return this.v = v
         }
-        return this.v = v;
+        else {
+            console.log("Parâmetro inválido");
+        }
+
     }
 
     get(i) { //método que pega o valor guardado no índice digitado

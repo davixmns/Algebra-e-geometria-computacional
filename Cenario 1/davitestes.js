@@ -15,7 +15,7 @@ class Vector {
             }
             return this.v = v
         }
-        else{
+        else {
             console.log("Parâmetro inválido");
         }
 
@@ -36,7 +36,11 @@ class Vector {
         }
     }
 }
-var elements = [1, 2, 3]
-var obj = new Vector(3, elements)
-obj.criador()
-console.log(obj.v)
+function testeVector() {
+    var elements = [1, 2, 3, 4, 5]
+    var dim = 5
+    var obj = new Vector(dim, elements)
+    obj.criador()
+    console.log(obj.v)
+}
+testeVector()
