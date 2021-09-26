@@ -51,11 +51,19 @@ class Vector {
     }
 
     criador() { //método que cria o vetor
-        var v = []
-        for (var i = 0; i < this.dim; i++) {
-            v[i] = this.elements
+        if (this.elements.length == this.dim) {
+            var v = []
+            var j = 0;
+            for (var i = 0; i < this.dim; i++) {
+                v[i] = this.elements[j]
+                j++
+            }
+            return this.v = v
         }
-        return this.v = v;
+        else {
+            console.log("Parâmetro inválido");
+        }
+
     }
 
     get(i) { //método que pega o valor guardado no índice digitado
@@ -84,28 +92,31 @@ class LinearAlgebra {
 
     transpose(a) {
 
+      var linhas = a.length;
+      var colunas = a[0].length;
 
-        if (Array.isArray(a) == true && a[0].length != undefined) {
-            var linhas = a.length;
-            var colunas = a[0].length;
-            var newArray = [];
-            for (var i = 0; i < a.length; i++) {
-                newArray.push([]);
-            };
+        if (Array.isArray(a) == true && colunas != undefined )
+        {
+          var newArray = [];
+          for(var i = 0; i < a.length; i++){
+           newArray.push([]);
+         };
 
-            for (var i = 0; i < a.length; i++) {
-                for (var j = 0; j < a.length; j++) {
-                    newArray[j].push(a[i][j]);
-                };
-            };
-            return newArray;
-        } else if (Array.isArray(a) == true && a[0].length == undefined) {
-            var resul = [];
-            resul = a.reverse();
-            return resul;
-            console.log("teste2");
-        } else console.log("operação impossivel")
-    }
+           for(var i = 0; i < a.length; i++){
+           for(var j = 0; j < a.length; j++){
+            newArray[j].push(a[i][j]);
+          };
+        };
+    return newArray;
+      }
+        else if (Array.isArray(a) == true && colunas == undefined)
+        {
+          var resul = [];
+          resul = a.reverse();
+          return resul;
+        }
+        else console.log("operação impossivel")
+      }
 
     sum(a, b) {
         if (Array.isArray(a) == true && Array.isArray(b) == true) {
@@ -180,19 +191,8 @@ class LinearAlgebra {
     solve(a) {}
 }
 
-//var array1 = [1, 2, 3, 4]
-
-//var vetor1 = new Vector(4, array1);
-//vetor1 = vetor1.criador();
-//var op = new LinearAlgebra(vetor1);
-//console.log(op.transpose(vetor1));
-
-var array2 = [
-    [1, 2, 3],
-    [1, 2, 3],
-    [1, 2, 3]
-]
-var matriz = new Matrix(3, 3, array2);
-matriz = matriz.criador();
-var op = new LinearAlgebra(matriz);
-console.log(op.transpose(1))
+var vv = [1, 2, 3];
+var vetor = new Vector(3, vv);
+vetor = vetor.criador();
+var objLA = new LinearAlgebra(vetor, 0);
+console.log(objLA.transpose(vetor));
