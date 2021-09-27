@@ -92,31 +92,29 @@ class LinearAlgebra {
 
     transpose(a) {
 
-      var linhas = a.length;
-      var colunas = a[0].length;
+        var linhas = a.length;
+        var colunas = a[0].length;
 
-        if (Array.isArray(a) == true && colunas != undefined )
-        {
-          var newArray = [];
-          for(var i = 0; i < a.length; i++){
-           newArray.push([]);
-         };
+        if (Array.isArray(a) == true && colunas != undefined) {
+            var newArray = [];
+            for (var i = 0; i < a.length; i++) {
+                newArray.push([]);
+            };
 
-           for(var i = 0; i < a.length; i++){
-           for(var j = 0; j < a.length; j++){
-            newArray[j].push(a[i][j]);
-          };
-        };
-    return newArray;
-      }
-        else if (Array.isArray(a) == true && colunas == undefined)
-        {
-          var resul = [];
-          resul = a.reverse();
-          return resul;
+            for (var i = 0; i < a.length; i++) {
+                for (var j = 0; j < a.length; j++) {
+                    newArray[j].push(a[i][j]);
+                };
+            };
+            return newArray;
+        }
+        else if (Array.isArray(a) == true && colunas == undefined) {
+            var resul = [];
+            resul = a.reverse();
+            return resul;
         }
         else console.log("operação impossivel")
-      }
+    }
 
     sum(a, b) {
         if (Array.isArray(a) == true && Array.isArray(b) == true) {
@@ -149,7 +147,7 @@ class LinearAlgebra {
         } else console.log("Parametro invalido")
     }
 
-    times(a, b) {}
+    times(a, b) { }
 
     dot(a, b) {
 
@@ -186,7 +184,25 @@ class LinearAlgebra {
 
     }
 
-    gauss(a) {}
+    gauss(a) { }
 
-    solve(a) {}
+    solve(a) { }
 }
+
+//EXEMPLOS--------------------------------------------------------
+
+//Criar Vetor
+/*
+var elem = [1, 2, 3]
+var dim = 3
+var objVector = new Vector(dim, elem);
+objVector.criador()
+console.log("vetor: " + objVector.v)
+*/
+
+
+//Vetor Transposto (utiliza objeto da vector)
+/*
+var objLA = new LinearAlgebra(objVector.v, 0);
+console.log("Vetor transposto: " + objLA.transpose(objVector.v));
+*/
