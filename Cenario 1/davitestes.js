@@ -190,24 +190,15 @@ class LinearAlgebra {
 }
 
 
-//Exemplo pra Vector
-/*
+
 var elem = [1, 2, 3]
 var dim = 3
 var objVector = new Vector(dim, elem);
-objVector.criador()
-console.log("vetor criado: " + objVector.v)
+console.log("vetor criado: " + objVector.criador())
 console.log("Get: " + objVector.get(0))
 objVector.set(0, 10)
 console.log("Set: " + objVector.get(0))
-*/
 
-
-//Vetor Transposto
-/*
-var objLA = new LinearAlgebra(objVector.v, 0);
-console.log("Vetor transposto: " + objLA.transpose(objVector.v));
-*/
 
 
 
