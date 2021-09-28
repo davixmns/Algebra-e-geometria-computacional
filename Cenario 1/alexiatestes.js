@@ -51,19 +51,11 @@ class Vector {
     }
 
     criador() { //método que cria o vetor
-        if (this.elements.length == this.dim) {
-            var v = []
-            var j = 0;
-            for (var i = 0; i < this.dim; i++) {
-                v[i] = this.elements[j]
-                j++
-            }
-            return this.v = v
+        var v = []
+        for (var i = 0; i < this.dim; i++) {
+            v[i] = this.elements
         }
-        else {
-            console.log("Parâmetro inválido");
-        }
-
+        return this.v = v;
     }
 
     get(i) { //método que pega o valor guardado no índice digitado
@@ -149,8 +141,92 @@ class LinearAlgebra {
         } else console.log("Parametro invalido")
     }
 
-    times(a, b) {}
+    times(a, b) {
+       if (Array.isArray(a) == true && Array.isArray(b) == true && a[0].length == undefined && b[0].length == undefined)
+       {     
+         if(a.length == b.length)
+         {
+           var linhas = a.length;
+           var m = [];
 
+            for(var x = 0; x < linhas; x++)
+           {
+             m[x] = [];       
+           }
+          
+           for(var x = 0; x < linhas; x++)
+           {
+             m[x] = a[x] * b[x];
+           }
+           return m;
+         }
+         else
+         {
+           return " Operação impossivel "
+         }
+       }
+       else if(Array.isArray(a) == true && Array.isArray(b) == true && a[0].length != undefined && b[0].length != undefined) 
+       {
+         if(a.length == b.length && a[0].length == b[0].length)
+         {
+           var linhas = a.length;
+           var colunas = a[0].length;
+           var m = [];
+
+             for(var x = 0; x < linhas; x++)
+           {
+             m[x] = [];
+             for(var y = 0; x < colunas; y++)
+             {
+               m[x][y] = 0;
+             }
+           }
+
+           for(var x = 0; x < linhas; x++)
+           {  
+             for(var y = 0; x < colunas; y++)
+             {
+               m[x][y] = a[x][y] * b[x][y];
+             }
+           }
+           return m;
+         }
+         else
+         {
+           return " Operação impossivel "
+         }
+       }
+      else if(Array.isArray(a) == false && Array.isArray(b) == true && b[0].length != undefined)
+         {
+           var linhas = b.length;
+           var colunas = b[0].length;
+           var num = a;
+           var m = [];
+
+           for(var x = 0; x < linhas; x++)
+           {
+             m[x] = [];
+             for(var y = 0; x < colunas; y++)
+             {
+               m[x][y] = 0;
+             }
+           }
+
+           for(var x = 0; x < linhas; x++)
+           {
+             for(var y = 0; x < colunas; y++)
+             {
+               m[x][y] = num * b[x][y];
+             }
+           }
+           return m;
+         }
+         else
+         {
+           return " Parametros inválidos "
+         }
+       }
+    
     dot(a, b) {
 
 
@@ -191,8 +267,19 @@ class LinearAlgebra {
     solve(a) {}
 }
 
-var vv = [1, 2, 3];
-var vetor = new Vector(3, vv);
-vetor = vetor.criador();
-var objLA = new LinearAlgebra(vetor, 0);
-console.log(objLA.transpose(vetor));
+var array = [
+    [1, 2],
+    [3, 4],
+
+]
+
+var array2 = [
+    [5, 6],
+    [7, 8]
+]
+var matriz1 = new Matrix(2, 2, array);
+var matriz2 = new Matrix(2, 2, array2);
+matriz1 = matriz1.criador();
+matriz2 = matriz2.criador();
+var teste = new LinearAlgebra(matriz1, matriz2);
+console.log(teste.times(matriz1, matriz2));
