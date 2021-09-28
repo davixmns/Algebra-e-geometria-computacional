@@ -142,91 +142,18 @@ class LinearAlgebra {
     }
 
     times(a, b) {
-       if (Array.isArray(a) == true && Array.isArray(b) == true && a[0].length == undefined && b[0].length == undefined)
-       {     
-         if(a.length == b.length)
-         {
-           var linhas = a.length;
-           var m = [];
-
-            for(var x = 0; x < linhas; x++)
-           {
-             m[x] = [];       
-           }
-          
-           for(var x = 0; x < linhas; x++)
-           {
-             m[x] = a[x] * b[x];
-           }
-           return m;
-         }
-         else
-         {
-           return " Operação impossivel "
-         }
-       }
-       else if(Array.isArray(a) == true && Array.isArray(b) == true && a[0].length != undefined && b[0].length != undefined) 
-       {
-         if(a.length == b.length && a[0].length == b[0].length)
-         {
-           var linhas = a.length;
-           var colunas = a[0].length;
-           var m = [];
-
-             for(var x = 0; x < linhas; x++)
-           {
-             m[x] = [];
-             for(var y = 0; x < colunas; y++)
-             {
-               m[x][y] = 0;
-             }
-           }
-
-           for(var x = 0; x < linhas; x++)
-           {  
-             for(var y = 0; x < colunas; y++)
-             {
-               m[x][y] = a[x][y] * b[x][y];
-             }
-           }
-           return m;
-         }
-         else
-         {
-           return " Operação impossivel "
-         }
-       }
-      else if(Array.isArray(a) == false && Array.isArray(b) == true && b[0].length != undefined)
-         {
-           var linhas = b.length;
-           var colunas = b[0].length;
-           var num = a;
-           var m = [];
-
-           for(var x = 0; x < linhas; x++)
-           {
-             m[x] = [];
-             for(var y = 0; x < colunas; y++)
-             {
-               m[x][y] = 0;
-             }
-           }
-
-           for(var x = 0; x < linhas; x++)
-           {
-             for(var y = 0; x < colunas; y++)
-             {
-               m[x][y] = num * b[x][y];
-             }
-           }
-           return m;
-         }
-         else
-         {
-           return " Parametros inválidos "
-         }
-       }
-    
+      var timesM = [];
+      for(var i = 0; i < b.rows; i++)
+      {
+        timesM[i] = [];
+        for(var j = 0; j < b.cols; j++)
+        {
+          timesM[i][j] = b.elements[i][j]*a;
+        }
+      }
+      return timesM;
+    }
+  
     dot(a, b) {
 
 
@@ -262,9 +189,65 @@ class LinearAlgebra {
 
     }
 
-    gauss(a) {}
+    gauss(a) {
+      var aux;
+      var i, j, k, c;
+      var gaussM = a.elements;
 
-    solve(a) {}
+      for(i = 0; i < a.rows-1; i++)
+      {
+        for(j = i+1; j < a.rows; j++)
+        {
+          if(gaussM[i][i] == 0)
+          {
+            for(k = i; k < a.cols; k++)
+            {
+              aux = gaussM[i][k];
+              gaussM[i][k] = gaussM[i+1][k];
+              gaussM[i+1][k] = aux;
+            }
+          }
+
+          if(gaussM[j][i] == 0){
+             k = gaussM[j][i] / gaussM[i][i];
+            for(c = i; c < a.cols; c++)
+            {
+              gaussM[j][c] = gaussM[j][c]-k*gaussM[i][c];
+            }   
+          }          
+        }
+      }
+      return gaussM;
+    }
+
+    solve(a) {
+      var res = [];
+      var i, j, k, c;
+
+      var cal = new LinearAlgebra()
+      var soveMatriz = cal.gauss(a)
+
+      for(i = a.rows-1; i > 0; i--)
+      {
+        for(j = i-1; j >=0; j--)
+        {
+          k = soveMatriz[j][i]/soveMatriz[i][i];
+          for(c = i; c < a.cols; c++)
+          {
+            soveMatriz[j][c] = soveMatriz[j][c] - k*soveMatriz[i][c];
+          }
+        }
+      }
+
+      for(i = 0; i < a.rows; i++)
+      {
+        soveMatriz[i][a.cols-1] = soveMatriz[i][a.cols-1]/soveMatriz[i][i];
+        soveMatriz[i][i] = 1;
+
+        res[i] = soveMatriz[i][a.cols-1]
+      }
+      return res;
+    }
 }
 
 var array = [
@@ -282,4 +265,4 @@ var matriz2 = new Matrix(2, 2, array2);
 matriz1 = matriz1.criador();
 matriz2 = matriz2.criador();
 var teste = new LinearAlgebra(matriz1, matriz2);
-console.log(teste.times(matriz1, matriz2));
+console.log(teste.solve(matriz1));
