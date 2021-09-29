@@ -5,10 +5,9 @@ class Matrix {
         this.rows = rows;
         this.cols = cols
         this.elements = elements
-        this.matriz = 0;
+        this.m = 0
+
     }
-
-
 
     criador() {
         if (this.elements.length == this.rows && this.elements[0].length == this.cols) {
@@ -28,7 +27,7 @@ class Matrix {
         if (i > this.rows || j > this.cols) {
             return console.log("Parametro invalido")
         } else {
-            return this.m[i][j];
+            return this.m[i - 1][j - 1];
         }
 
     }
@@ -39,6 +38,10 @@ class Matrix {
         } else {
             return this.m[i][j] = value;
         }
+    }
+
+    mostrar() {
+        return this.m
     }
 
 }
@@ -59,8 +62,7 @@ class Vector {
                 j++
             }
             return this.v = v
-        }
-        else {
+        } else {
             console.log("Parâmetro inválido");
         }
 
@@ -107,13 +109,11 @@ class LinearAlgebra {
                 };
             };
             return newArray;
-        }
-        else if (Array.isArray(a) == true && colunas == undefined) {
+        } else if (Array.isArray(a) == true && colunas == undefined) {
             var resul = [];
             resul = a.reverse();
             return resul;
-        }
-        else console.log("operação impossivel")
+        } else console.log("operação impossivel")
     }
 
     sum(a, b) {
@@ -147,7 +147,7 @@ class LinearAlgebra {
         } else console.log("Parametro invalido")
     }
 
-    times(a, b) { }
+    times(a, b) {}
 
     dot(a, b) {
 
@@ -184,12 +184,49 @@ class LinearAlgebra {
 
     }
 
-    gauss(a) { }
+    gauss(a) {}
 
-    solve(a) { }
+    solve(a) {}
 }
 
 //EXEMPLOS--------------------------------------------------------
+
+/*Exeplo para a classe Matrix e Somatoria*/
+var array1 = [
+    [1, 2],
+    [3, 4]
+]
+
+var array2 = [
+    [1, 2],
+    [3, 4]
+]
+var m1 = new Matrix(2, 2, array1)
+var m2 = new Matrix(2, 2, array2)
+
+/*Criar matriz*/
+
+matriz1 = m1.criador();
+matriz2 = m2.criador();
+
+/*Get e set*/
+
+
+// console.log(m1.get(2, 1))
+// m1.set(1, 1, 5)
+// console.log(m1.mostrar())
+
+
+/*Somatoria */
+var operacao = new LinearAlgebra();
+console.log(operacao.sum(matriz1, matriz2))
+
+/*Multiplicação*/
+console.log(operacao.dot(matriz1, matriz2))
+
+
+
+
 
 //Exemplo pra Vector
 /*
