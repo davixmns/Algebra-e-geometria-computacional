@@ -147,7 +147,37 @@ class LinearAlgebra {
         } else console.log("Parametro invalido")
     }
 
-    times(a, b) {}
+    times(a, b) {
+        var timesM = [];
+
+
+
+        if (Array.isArray(a) == false) {
+            for (var i = 0; i < b.length; i++) {
+                timesM[i] = [];
+                for (var j = 0; j < b[0].length; j++) {
+                    timesM[i][j] = b[i][j] * a;
+                }
+            }
+            return timesM;
+        } else if (a[0].length == undefined) {
+            for (var y = 0; y < a.length; y++) {
+                timesM[y] = a[y] * b[y]
+            }
+
+            return timesM;
+        } else {
+
+            for (var i = 0; i < b.length; i++) {
+                timesM[i] = [];
+                for (var j = 0; j < b[0].length; j++) {
+                    timesM[i][j] = b[i][j] * a[i][j];
+                }
+            }
+            return timesM;
+        }
+
+    }
 
     dot(a, b) {
 

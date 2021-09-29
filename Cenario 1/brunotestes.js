@@ -184,7 +184,7 @@ class LinearAlgebra {
 
     }
 
-    gaussSolver(A, b) {
+    gaussSolver(a, b) {
         var i, j, k, l, m;
         //ETAPA DE ESCALONAMENTO
         for (k = 0; k < A.length - 1; k++) {
