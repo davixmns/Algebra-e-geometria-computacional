@@ -267,6 +267,10 @@ var objVector = new Vector(dim, elem);
 //console.log("Set: " + objVector)
 //console.log("Get: " + objVector.get(0))
 
+//var teste = new LinearAlgebra(m1, m2);
+//console.log(teste.times(m1, m2));
+//var teste = new LinearAlgebra(m1, m2);
+//console.log(teste.transpose(m1));
 
 
 //Vetor Transposto
