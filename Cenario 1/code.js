@@ -150,8 +150,6 @@ class LinearAlgebra {
     times(a, b) {
         var timesM = [];
 
-
-
         if (Array.isArray(a) == false) {
             for (var i = 0; i < b.length; i++) {
                 timesM[i] = [];
@@ -242,17 +240,17 @@ matriz2 = m2.criador();
 /*Get e set*/
 
 
-// console.log(m1.get(2, 1))
+//console.log(m1.get(2, 1))
 // m1.set(1, 1, 5)
-// console.log(m1.mostrar())
+//console.log(m1.mostrar())
 
 
 /*Somatoria */
-var operacao = new LinearAlgebra();
-console.log(operacao.sum(matriz1, matriz2))
+//var operacao = new LinearAlgebra();
+//console.log(operacao.sum(matriz1, matriz2))
 
 /*Multiplicação*/
-console.log(operacao.dot(matriz1, matriz2))
+//console.log(operacao.dot(matriz1, matriz2))
 
 
 
@@ -266,7 +264,8 @@ var objVector = new Vector(dim, elem);
 //console.log("vetor criado: " + objVector.criador())
 //console.log("Get: " + objVector.get(0))
 //objVector.set(0, 10)
-//console.log("Set: " + objVector.get(0))
+//console.log("Set: " + objVector)
+//console.log("Get: " + objVector.get(0))
 
 
 
