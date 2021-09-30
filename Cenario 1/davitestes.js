@@ -51,19 +51,11 @@ class Vector {
     }
 
     criador() { //método que cria o vetor
-        if (this.elements.length == this.dim) {
-            var v = []
-            var j = 0;
-            for (var i = 0; i < this.dim; i++) {
-                v[i] = this.elements[j]
-                j++
-            }
-            return this.v = v
+        var v = []
+        for (var i = 0; i < this.dim; i++) {
+            v[i] = this.elements
         }
-        else {
-            console.log("Parâmetro inválido");
-        }
-
+        return this.v = v;
     }
 
     get(i) { //método que pega o valor guardado no índice digitado
@@ -107,13 +99,11 @@ class LinearAlgebra {
                 };
             };
             return newArray;
-        }
-        else if (Array.isArray(a) == true && colunas == undefined) {
+        } else if (Array.isArray(a) == true && colunas == undefined) {
             var resul = [];
             resul = a.reverse();
             return resul;
-        }
-        else console.log("operação impossivel")
+        } else console.log("operação impossivel")
     }
 
     sum(a, b) {
@@ -147,7 +137,35 @@ class LinearAlgebra {
         } else console.log("Parametro invalido")
     }
 
-    times(a, b) { }
+    times(a, b) {
+        var timesM = [];
+
+        if (Array.isArray(a) == false) {
+            for (var i = 0; i < b.length; i++) {
+                timesM[i] = [];
+                for (var j = 0; j < b[0].length; j++) {
+                    timesM[i][j] = b[i][j] * a;
+                }
+            }
+            return timesM;
+        } else if (a[0].length == undefined) {
+            for (var y = 0; y < a.length; y++) {
+                timesM[y] = a[y] * b[y]
+            }
+
+            return timesM;
+        } else {
+
+            for (var i = 0; i < b.length; i++) {
+                timesM[i] = [];
+                for (var j = 0; j < b[0].length; j++) {
+                    timesM[i][j] = b[i][j] * a[i][j];
+                }
+            }
+            return timesM;
+        }
+
+    }
 
     dot(a, b) {
 
@@ -184,22 +202,77 @@ class LinearAlgebra {
 
     }
 
-    gauss(a) { }
+    gauss(a, elements, rows, coluns) {
+        var aux;
+        var i, j, k, c;
+        var rows = rows
+        var coluns = coluns
+        var gaussM = a
 
-    solve(a) { }
+        for (i = 0; i < rows - 1; i++) {
+            console.log("for 1")
+            for (j = i + 1; j < rows; j++) {
+                console.log("for 2")
+                console.log(gaussM[i][i])
+                if (gaussM[i][i] == 0) {
+                    console.log("if 1")
+                    for (k = i; k < coluns; k++) {
+                        console.log("for 3")
+                        aux = gaussM[i][k];
+                        gaussM[i][k] = gaussM[i + 1][k];
+                        gaussM[i + 1][k] = aux;
+                    }
+                }
+
+                if (gaussM[j][i] == 0) {
+                    console.log("if 2")
+                    k = gaussM[j][i] / gaussM[i][i];
+                    for (c = i; c < coluns; c++) {
+                        console.log("for 4")
+                        gaussM[j][c] = gaussM[j][c] - k * gaussM[i][c];
+                    }
+                }
+            }
+        }
+        return gaussM;
+    }
+
+    solve(a) {
+        var res = [];
+        var i, j, k, c;
+
+        var cal = new LinearAlgebra()
+        var soveMatriz = cal.gauss(a)
+
+        for (i = a.rows - 1; i > 0; i--) {
+            for (j = i - 1; j >= 0; j--) {
+                k = soveMatriz[j][i] / soveMatriz[i][i];
+                for (c = i; c < a.cols; c++) {
+                    soveMatriz[j][c] = soveMatriz[j][c] - k * soveMatriz[i][c];
+                }
+            }
+        }
+
+        for (i = 0; i < a.rows; i++) {
+            soveMatriz[i][a.cols - 1] = soveMatriz[i][a.cols - 1] / soveMatriz[i][i];
+            soveMatriz[i][i] = 1;
+
+            res[i] = soveMatriz[i][a.cols - 1]
+        }
+        return res;
+    }
 }
 
+var array = [
+    [1, 2],
+    [3, 4]
+]
 
+var matriz1 = new Matrix(2, 2, array);
 
-var elem = [1, 2, 3]
-var dim = 3
-var objVector = new Vector(dim, elem);
-console.log("vetor criado: " + objVector.criador())
-console.log("Get: " + objVector.get(0))
-objVector.set(0, 10)
-console.log("Set: " + objVector.get(0))
+matriz1.criador();
+console.log(matriz1.m)
 
-
-
-
+var objLA = new LinearAlgebra(matriz1, 0)
+objLA.gauss(matriz1, 2, 2)
 
