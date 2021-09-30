@@ -268,6 +268,10 @@ var objVector = new Vector(dim, elem);
 //objVector.set(0, 10)
 //console.log("Set: " + objVector.get(0))
 
+//var teste = new LinearAlgebra(matriz1, matriz2);
+//console.log(teste.times(matriz1, matriz2));
+//var teste = new LinearAlgebra(matriz1, matriz2);
+//console.log(teste.transpose(matriz1));
 
 
 //Vetor Transposto
