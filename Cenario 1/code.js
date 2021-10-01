@@ -212,9 +212,56 @@ class LinearAlgebra {
 
     }
 
-    gauss(a) {}
+    gauss(a) {
+        var aux;
+        var i, j, k, c;
+        var gaussM = a.elements;
 
-    solve(a) {}
+        for (i = 0; i < a.rows - 1; i++) {
+            for (j = i + 1; j < a.rows; j++) {
+                if (gaussM[i][i] == 0) {
+                    for (k = i; k < a.cols; k++) {
+                        aux = gaussM[i][k];
+                        gaussM[i][k] = gaussM[i + 1][k];
+                        gaussM[i + 1][k] = aux;
+                    }
+                }
+
+                if (gaussM[j][i] == 0) {
+                    k = gaussM[j][i] / gaussM[i][i];
+                    for (c = i; c < a.cols; c++) {
+                        gaussM[j][c] = gaussM[j][c] - k * gaussM[i][c];
+                    }
+                }
+            }
+        }
+        return gaussM;
+    }
+
+    solve(a) {
+        var res = [];
+        var i, j, k, c;
+
+        var cal = new LinearAlgebra()
+        var soveMatriz = cal.gauss(a)
+
+        for (i = a.rows - 1; i > 0; i--) {
+            for (j = i - 1; j >= 0; j--) {
+                k = soveMatriz[j][i] / soveMatriz[i][i];
+                for (c = i; c < a.cols; c++) {
+                    soveMatriz[j][c] = soveMatriz[j][c] - k * soveMatriz[i][c];
+                }
+            }
+        }
+
+        for (i = 0; i < a.rows; i++) {
+            soveMatriz[i][a.cols - 1] = soveMatriz[i][a.cols - 1] / soveMatriz[i][i];
+            soveMatriz[i][i] = 1;
+
+            res[i] = soveMatriz[i][a.cols - 1]
+        }
+        return res;
+    }
 }
 
 //EXEMPLOS--------------------------------------------------------
