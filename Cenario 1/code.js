@@ -265,62 +265,55 @@ class LinearAlgebra {
 }
 
 //EXEMPLOS--------------------------------------------------------
-
-/*Exeplo para a classe Matrix e Somatoria*/
-var array1 = [
+/*
+var matriz1 = [
     [1, 2],
     [3, 4]
 ]
 
-var array2 = [
+var matriz2 = [
     [1, 2],
     [3, 4]
 ]
-var m1 = new Matrix(2, 2, array1)
-var m2 = new Matrix(2, 2, array2)
+*/
 
-/*Criar matriz*/
+//Matrix----------------------------------------------------------
 
-matriz1 = m1.criador();
-matriz2 = m2.criador();
-
-/*Get e set*/
-
-
+//var m1 = new Matrix(2, 2, matriz1)
+//var m2 = new Matrix(2, 2, matriz2)
+//matriz1 = m1.criador()
+//matriz2 = m2.criador()
 //console.log(m1.get(2, 1))
 // m1.set(1, 1, 5)
 //console.log(m1.mostrar())
 
+//Vector-----------------------------------------------------------
 
-/*Somatoria */
-//var operacao = new LinearAlgebra();
-//console.log(operacao.sum(matriz1, matriz2))
-
-/*Multiplicação*/
-//console.log(operacao.dot(matriz1, matriz2))
-
-
-
-
-
-//Exemplo pra Vector
-
-var elem = [1, 2, 3]
-var dim = 3
-var objVector = new Vector(dim, elem);
+//var elem = [1, 2, 3, 4]
+//var dim = 4
+//var objVector = new Vector(dim, elem)
 //console.log("vetor criado: " + objVector.criador())
 //console.log("Get: " + objVector.get(0))
 //objVector.set(0, 10)
-//console.log("Set: " + objVector)
 //console.log("Get: " + objVector.get(0))
 
-//var teste = new LinearAlgebra(m1, m2);
-//console.log(teste.times(m1, m2));
-//var teste = new LinearAlgebra(m1, m2);
-//console.log(teste.transpose(m1));
+//LinearÁlgebra----------------------------------------------------
 
+//sum
+//var operacao = new LinearAlgebra()
+//console.log(operacao.sum(matriz1, matriz2))
 
-//Vetor Transposto
+//dot
+//console.log(operacao.dot(matriz1, matriz2))
 
-var objLA = new LinearAlgebra(objVector.v, 0);
-//console.log("Vetor transposto: " + objLA.transpose(objVector.v));
+//transpose
+//console.log("Vetor transposto: " + operacao.transpose(objVector.v))
+
+//times
+//console.log(operacao.times(matriz1, matriz2));
+
+//gauss
+//console.log(operacao.gauss(matriz1));
+
+//solve
+//console.log(operacao.solve(matriz1));
