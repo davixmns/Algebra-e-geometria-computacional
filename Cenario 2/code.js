@@ -5,7 +5,7 @@ class Vector {
         this.elements = elements
     }
 
-    criador() {
+    criador() { 
         if (this.elements.length == this.dim) {
             var v = []
             var j = 0;

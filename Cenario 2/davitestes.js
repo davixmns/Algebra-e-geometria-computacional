@@ -99,33 +99,18 @@ class LinearAlgebra {
     }
 
     times(a, b) {
-        var timesM = [];
-
-        if (Array.isArray(a) == false) {
-            for (var i = 0; i < b.length; i++) {
-                timesM[i] = [];
-                for (var j = 0; j < b[0].length; j++) {
-                    timesM[i][j] = b[i][j] * a;
+        var resultado = [];
+        for (var i = 0; i < a.length; i++) {
+            resultado[i] = [];
+            for (var j = 0; j < b[0].length; j++) {
+                var sum = 0;
+                for (var k = 0; k < a[0].length; k++) {
+                    sum += a[i][k] * b[k][j];
                 }
+                resultado[i][j] = sum;
             }
-            return timesM;
-        } else if (a[0].length == undefined) {
-            for (var y = 0; y < a.length; y++) {
-                timesM[y] = a[y] * b[y]
-            }
-
-            return timesM;
-        } else {
-
-            for (var i = 0; i < b.length; i++) {
-                timesM[i] = [];
-                for (var j = 0; j < b[0].length; j++) {
-                    timesM[i][j] = b[i][j] * a[i][j];
-                }
-            }
-            return timesM;
         }
-
+        return resultado;
     }
 
     dot(a, b) {
@@ -216,22 +201,65 @@ class LinearAlgebra {
 }
 class Reflection {
     
-    reflection2DX(vector){
+    reflection2DX(matriz){
         var elements = [
             [-1, 0],
             [0, 1]
         ]
         var objLA = new LinearAlgebra()
-        return objLA.times(elements, vector)
+        return objLA.times(elements, matriz)
     }
 
-    reflection2DY(){
+    reflection2DY(matriz){
+        var elements = [
+            [1, 0],
+            [0, -1]
+        ]
+        var objLA = new LinearAlgebra()
+        return objLA.times(elements, matriz)
+    }
 
+    reflection3DX(matriz){
+        var elements = [
+            [-1, 0, 0],
+            [0, 1, 0],
+            [0, 0, 1]
+        ]
+        var objLA = new LinearAlgebra()
+        return objLA.times(elements, matriz)
+    }
+    reflection3DY(matriz){
+        var elements = [
+            [1, 0, 0],
+            [0, -1, 0],
+            [0, 0, 1]
+        ]
+        var objLA = new LinearAlgebra()
+        return objLA.times(elements, matriz)
+    }
+    reflection3DZ(matriz){
+        var elements = [
+            [1, 0, 0],
+            [0, 1, 0],
+            [0, 0, -1]
+        ]
+        var objLA = new LinearAlgebra()
+        return objLA.times(elements, matriz)
     }
 }
-var vetor = [
-    [-10],
-    [89]
+
+var elements1 = [
+    [10],
+    [10]
+]
+var elements2 = [
+    [10],
+    [10],
+    [10]
 ]
 var objR = new Reflection()
-console.log(objR.reflection2DX(vetor))
+console.log("2DX = " + objR.reflection2DX(elements1))
+console.log("2DY = " + objR.reflection2DY(elements1))
+console.log("3DX = " + objR.reflection3DX(elements2))
+console.log("3DY = " + objR.reflection3DY(elements2))
+console.log("3DZ = " + objR.reflection3DZ(elements2))
