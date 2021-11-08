@@ -11,11 +11,11 @@ class LinearAlgebra {
         for (var i = 0; i < a.length; i++) {
             resultado[i] = [];
             for (var j = 0; j < b[0].length; j++) {
-                var sum = 0;
+                var soma = 0;
                 for (var k = 0; k < a[0].length; k++) {
-                    sum += a[i][k] * b[k][j];
+                    soma += a[i][k] * b[k][j];
                 }
-                resultado[i][j] = sum;
+                resultado[i][j] = soma;
             }
         }
         return resultado;
@@ -115,7 +115,7 @@ console.log(transf.shearing(vetor, 0, 2))
 */
 
 // EXEMPLOS DA CLASSE REFLECTION
-/*
+
 var elements1 = [
     [10],
     [10]
@@ -131,4 +131,4 @@ console.log("2DY = " + objR.reflection2DY(elements1))
 console.log("3DX = " + objR.reflection3DX(elements2))
 console.log("3DY = " + objR.reflection3DY(elements2))
 console.log("3DZ = " + objR.reflection3DZ(elements2))
-*/
+
