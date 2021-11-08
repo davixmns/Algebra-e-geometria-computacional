@@ -79,13 +79,13 @@ class Tranformations {
             }
 
         } else {
-            return v
+            return vector
         }
 
 
+        var aux = [m[0][0], m[1][0]]
 
-
-        return m;
+        return aux;
     }
 }
 
@@ -93,7 +93,7 @@ class Tranformations {
 var vector = new Vector(2, [1, 2]);
 var transf = new Tranformations();
 var vetor = vector.criador()
-console.log(transf.shearing(vetor, 0, 0))
+console.log(transf.shearing(vetor, 2, 0))
 
 // class Translate {}
 

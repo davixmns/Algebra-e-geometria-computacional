@@ -79,13 +79,13 @@ class Tranformations {
             }
 
         } else {
-            return v
+            return vector
         }
 
 
+        var aux = [m[0][0], m[1][0]]
 
-
-        return m;
+        return aux;
     }
 }
 
