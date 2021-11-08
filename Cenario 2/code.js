@@ -89,7 +89,7 @@ class Tranformations {
     }
 }
 
-
+// EXEMPLOS DA CLASSE CISALHAMENTO
 var vector = new Vector(2, [1, 2]);
 var transf = new Tranformations();
 var vetor = vector.criador()
