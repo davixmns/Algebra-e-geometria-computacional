@@ -24,6 +24,11 @@ class LinearAlgebra {
 }
 class Reflection {
     
+    
+}
+
+class Tranformations {
+
     reflection2DX(matriz){
         var elements = [
             [-1, 0],
@@ -69,9 +74,7 @@ class Reflection {
         var objLA = new LinearAlgebra()
         return objLA.times(elements, matriz)
     }
-}
 
-class Tranformations {
     shearing(vector, ky, kx) {
         // T*vector 
         var v = [
@@ -102,7 +105,7 @@ class Tranformations {
         } else {
             return vector
         }
-
+        
     }
 }
 
@@ -115,7 +118,7 @@ console.log(transf.shearing(vetor, 0, 2))
 */
 
 // EXEMPLOS DA CLASSE REFLECTION
-
+/*
 var elements1 = [
     [10],
     [10]
@@ -125,10 +128,10 @@ var elements2 = [
     [10],
     [10]
 ]
-var objR = new Reflection()
-console.log("2DX = " + objR.reflection2DX(elements1))
-console.log("2DY = " + objR.reflection2DY(elements1))
-console.log("3DX = " + objR.reflection3DX(elements2))
-console.log("3DY = " + objR.reflection3DY(elements2))
-console.log("3DZ = " + objR.reflection3DZ(elements2))
-
+var transf = new Tranformations()
+console.log("2DX = " + transf.reflection2DX(elements1))
+console.log("2DY = " + transf.reflection2DY(elements1))
+console.log("3DX = " + transf.reflection3DX(elements2))
+console.log("3DY = " + transf.reflection3DY(elements2))
+console.log("3DZ = " + transf.reflection3DZ(elements2))
+*/
