@@ -22,14 +22,10 @@ class LinearAlgebra {
     }
 
 }
-class Reflection {
-    
-    
-}
 
 class Tranformations {
 
-    reflection2DX(matriz){
+    reflection2DX(matriz) {
         var elements = [
             [-1, 0],
             [0, 1]
@@ -38,7 +34,7 @@ class Tranformations {
         return objLA.times(elements, matriz)
     }
 
-    reflection2DY(matriz){
+    reflection2DY(matriz) {
         var elements = [
             [1, 0],
             [0, -1]
@@ -47,7 +43,7 @@ class Tranformations {
         return objLA.times(elements, matriz)
     }
 
-    reflection3DX(matriz){
+    reflection3DX(matriz) {
         var elements = [
             [-1, 0, 0],
             [0, 1, 0],
@@ -56,7 +52,7 @@ class Tranformations {
         var objLA = new LinearAlgebra()
         return objLA.times(elements, matriz)
     }
-    reflection3DY(matriz){
+    reflection3DY(matriz) {
         var elements = [
             [1, 0, 0],
             [0, -1, 0],
@@ -65,7 +61,7 @@ class Tranformations {
         var objLA = new LinearAlgebra()
         return objLA.times(elements, matriz)
     }
-    reflection3DZ(matriz){
+    reflection3DZ(matriz) {
         var elements = [
             [1, 0, 0],
             [0, 1, 0],
@@ -105,7 +101,7 @@ class Tranformations {
         } else {
             return vector
         }
-        
+
     }
 }
 
