@@ -89,6 +89,73 @@ class Tranformations {
     }
 }
 
+class Reflection {
+    
+    reflection2DX(matriz){
+        var elements = [
+            [-1, 0],
+            [0, 1]
+        ]
+        var objLA = new LinearAlgebra()
+        return objLA.times(elements, matriz)
+    }
+
+    reflection2DY(matriz){
+        var elements = [
+            [1, 0],
+            [0, -1]
+        ]
+        var objLA = new LinearAlgebra()
+        return objLA.times(elements, matriz)
+    }
+
+    reflection3DX(matriz){
+        var elements = [
+            [-1, 0, 0],
+            [0, 1, 0],
+            [0, 0, 1]
+        ]
+        var objLA = new LinearAlgebra()
+        return objLA.times(elements, matriz)
+    }
+    reflection3DY(matriz){
+        var elements = [
+            [1, 0, 0],
+            [0, -1, 0],
+            [0, 0, 1]
+        ]
+        var objLA = new LinearAlgebra()
+        return objLA.times(elements, matriz)
+    }
+    reflection3DZ(matriz){
+        var elements = [
+            [1, 0, 0],
+            [0, 1, 0],
+            [0, 0, -1]
+        ]
+        var objLA = new LinearAlgebra()
+        return objLA.times(elements, matriz)
+    }
+}
+/*EXEMPLO PRA REFLECTION
+var elements1 = [
+    [10],
+    [10]
+]
+var elements2 = [
+    [10],
+    [10],
+    [10]
+]
+var objR = new Reflection()
+console.log("2DX = " + objR.reflection2DX(elements1))
+console.log("2DY = " + objR.reflection2DY(elements1))
+console.log("3DX = " + objR.reflection3DX(elements2))
+console.log("3DY = " + objR.reflection3DY(elements2))
+console.log("3DZ = " + objR.reflection3DZ(elements2))
+*/
+
+
 
 var vector = new Vector(2, [1, 2]);
 var transf = new Tranformations();
@@ -100,7 +167,7 @@ console.log(transf.shearing(vetor, 0, 2))
 
 // class Rotation {}
 
-// class Reflection {}
+// class Reflection {} OK
 
 // class Projection {}
 
