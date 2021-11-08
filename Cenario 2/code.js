@@ -1,4 +1,4 @@
-// class Translate {}
+// class Translate {} OK
 // class Rotation {}
 // class Reflection {} OK
 // class Projection {}
