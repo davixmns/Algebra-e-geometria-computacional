@@ -36,6 +36,24 @@ class Vector {
     }
 }
 
+class LinearAlgebra {
+    times(a, b) {
+        var resultado = [];
+        for (var i = 0; i < a.length; i++) {
+            resultado[i] = [];
+            for (var j = 0; j < b[0].length; j++) {
+                var sum = 0;
+                for (var k = 0; k < a[0].length; k++) {
+                    sum += a[i][k] * b[k][j];
+                }
+                resultado[i][j] = sum;
+            }
+        }
+        return resultado;
+    }
+
+}
+
 class Tranformations {
     shearing(vector, ky, kx) {
         // T*vector 
@@ -51,49 +69,32 @@ class Tranformations {
             [1, kx],
             [0, 1]
         ];
-
-        var m = [];
-        for (var x = 0; x < 2; x++) {
-            m[x] = [];
-            for (var y = 0; y < 1; y++) {
-                m[x][y] = 0;
-            }
-        }
+        var objLA = new LinearAlgebra()
+        var aux;
 
         if (ky > 0) {
-            for (var i = 0; i < cisy.length; i++) {
-                for (var j = 0; j < v[0].length; j++) {
-                    for (var k = 0; k < cisy[0].length; k++) {
-                        m[i][j] = m[i][j] + cisy[i][k] * v[k][j];
-                    }
-                }
-            }
+
+            aux = [objLA.times(cisy, v)[0][0], objLA.times(cisy, v)[1][0]]
+            return aux;
+
         } else if (kx > 0) {
 
-            for (var i = 0; i < cisx.length; i++) {
-                for (var j = 0; j < v[0].length; j++) {
-                    for (var k = 0; k < cisx[0].length; k++) {
-                        m[i][j] = m[i][j] + cisx[i][k] * v[k][j];
-                    }
-                }
-            }
+            aux = [objLA.times(cisx, v)[0][0], objLA.times(cisx, v)[1][0]]
+            return aux;
 
         } else {
             return vector
         }
 
-
-        var aux = [m[0][0], m[1][0]]
-
-        return aux;
     }
 }
 
-// EXEMPLO DO METODO DE CISALHAMENTO 
+
 var vector = new Vector(2, [1, 2]);
 var transf = new Tranformations();
 var vetor = vector.criador()
-console.log(transf.shearing(vetor, 2, 0))
+
+console.log(transf.shearing(vetor, 0, 2))
 
 // class Translate {}
 
