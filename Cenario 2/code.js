@@ -1,3 +1,9 @@
+// class Translate {}
+// class Rotation {}
+// class Reflection {} OK
+// class Projection {}
+// class Shearing {} OK 
+
 class LinearAlgebra {
 
     times(a, b) {
@@ -126,14 +132,3 @@ console.log("3DX = " + objR.reflection3DX(elements2))
 console.log("3DY = " + objR.reflection3DY(elements2))
 console.log("3DZ = " + objR.reflection3DZ(elements2))
 */
-
-
-// class Translate {}
-
-// class Rotation {}
-
-// class Reflection {} OK
-
-// class Projection {}
-
-// class Shearing {} OK 
