@@ -83,7 +83,7 @@ class Tranformations {
             [0, 1]
         ]
         var objLA = new LinearAlgebra()
-        return objLA.times(elements, matriz)
+        return objLA.dot(elements, matriz)
     }
 
     reflection2DY(matriz) {
@@ -92,7 +92,7 @@ class Tranformations {
             [0, -1]
         ]
         var objLA = new LinearAlgebra()
-        return objLA.times(elements, matriz)
+        return objLA.dot(elements, matriz)
     }
 
     reflection3DX(matriz) {
@@ -102,7 +102,7 @@ class Tranformations {
             [0, 0, 1]
         ]
         var objLA = new LinearAlgebra()
-        return objLA.times(elements, matriz)
+        return objLA.dot(elements, matriz)
     }
     reflection3DY(matriz) {
         var elements = [
@@ -111,7 +111,7 @@ class Tranformations {
             [0, 0, 1]
         ]
         var objLA = new LinearAlgebra()
-        return objLA.times(elements, matriz)
+        return objLA.dot(elements, matriz)
     }
     reflection3DZ(matriz) {
         var elements = [
@@ -120,7 +120,7 @@ class Tranformations {
             [0, 0, -1]
         ]
         var objLA = new LinearAlgebra()
-        return objLA.times(elements, matriz)
+        return objLA.dot(elements, matriz)
     }
 
     translate2D(vector, dx, dy) {
@@ -191,8 +191,6 @@ class Tranformations {
 // var transf = new Tranformations();
 // var vetor = vector.criador()
 // console.log(transf.translate2D(vetor, 2, 2))
-
-
 
 
 
