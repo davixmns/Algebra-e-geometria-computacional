@@ -100,23 +100,7 @@ class Tranformations {
 
     }
 
-    translate2D(vector, dx, dy) {
-        // M*v == translatada 
-        var objLA = new LinearAlgebra()
-        var aux;
-        var v = [
-            [vector[0]],
-            [vector[1]],
-            [1]
-        ]
-        var T = [
-            [1, 0, dx],
-            [0, 1, dy],
-            [0, 0, 1]
-        ]
-        aux = [objLA.dot(T, v)[0][0], objLA.dot(T, v)[1][0]]
-        return aux;
-    }
+
 }
 
 
@@ -124,5 +108,4 @@ var vector = new Vector(2, [1, 2]);
 var transf = new Tranformations();
 var vetor = vector.criador()
 
-//console.log(transf.shearing(vetor, 0, 2))
-//console.log(transf.translate2D(vetor, 2, 2))
+console.log(transf.shearing(vetor, 0, 2))
