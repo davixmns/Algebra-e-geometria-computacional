@@ -5,69 +5,84 @@ class LinearAlgebra {
     }
     // objeto1: objeto de Matrix ou Vector
     // objeto2: objeto de Matrix ou Vector
-    
-    times(a, b) {
-        var resultado = [];
-        for (var i = 0; i < a.length; i++) {
-            resultado[i] = [];
-            for (var j = 0; j < b[0].length; j++) {
-                var sum = 0;
-                for (var k = 0; k < a[0].length; k++) {
-                    sum += a[i][k] * b[k][j];
+
+    dot(a, b) {
+
+        var linhas = a.length,
+            colunas = a[0].length,
+            linahsb = b.length,
+            colunasb = b[0].length;
+        if (colunas == linahsb) {
+            var m = [];
+            for (var x = 0; x < linhas; x++) {
+                m[x] = [];
+                for (var y = 0; y < colunasb; y++) {
+                    m[x][y] = 0;
                 }
-                resultado[i][j] = sum;
             }
+            for (var i = 0; i < linhas; i++) {
+                for (var j = 0; j < colunasb; j++) {
+                    for (var k = 0; k < colunas; k++) {
+                        m[i][j] = m[i][j] + a[i][k] * b[k][j];
+                    }
+                }
+            }
+
+            return m;
+        } else {
+            return " Operação impossivel "
         }
-        return resultado;
+
+
     }
 
 }
 class Reflection {
-    
-    reflection2DX(matriz){
+
+    reflection2DX(matriz) {
         var elements = [
             [-1, 0],
             [0, 1]
         ]
         var objLA = new LinearAlgebra()
-        return objLA.times(elements, matriz)
+        return objLA.dot(elements, matriz)
     }
 
-    reflection2DY(matriz){
+    reflection2DY(matriz) {
         var elements = [
             [1, 0],
             [0, -1]
         ]
         var objLA = new LinearAlgebra()
-        return objLA.times(elements, matriz)
+        return objLA.dot(elements, matriz)
     }
 
-    reflection3DX(matriz){
+    reflection3DX(matriz) {
         var elements = [
             [-1, 0, 0],
             [0, 1, 0],
             [0, 0, 1]
         ]
         var objLA = new LinearAlgebra()
-        return objLA.times(elements, matriz)
+        return objLA.dot(elements, matriz)
     }
-    reflection3DY(matriz){
+    reflection3DY(matriz) {
         var elements = [
             [1, 0, 0],
             [0, -1, 0],
             [0, 0, 1]
         ]
         var objLA = new LinearAlgebra()
-        return objLA.times(elements, matriz)
+        return objLA.dot(elements, matriz)
     }
-    reflection3DZ(matriz){
+    reflection3DZ(matriz) {
         var elements = [
             [1, 0, 0],
             [0, 1, 0],
             [0, 0, -1]
         ]
         var objLA = new LinearAlgebra()
-        return objLA.times(elements, matriz)
+        return objLA.dot(elements, matriz)
     }
 }
 
