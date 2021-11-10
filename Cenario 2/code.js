@@ -5,7 +5,7 @@
 // class Shearing {} OK Tarcizo 
 
 class LinearAlgebra {
-
+    //operaçoes
     dot(a, b) {
 
         var linhas = a.length,
