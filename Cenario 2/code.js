@@ -76,6 +76,45 @@ class Vector {
 }
 
 class Tranformations {
+    translate2D(vector, dx, dy) {
+        // M*v == translatada 
+        var objLA = new LinearAlgebra()
+        var aux;
+        // vetor com 3 posicoes
+        var v = [
+            [vector[0]],
+            [vector[1]],
+            [1]
+        ]
+        // matriz translatada
+        var T = [
+            [1, 0, dx],
+            [0, 1, dy],
+            [0, 0, 1]
+        ]
+        //retorna as coordenadas 
+        aux = [objLA.dot(T, v)[0][0], objLA.dot(T, v)[1][0]]
+        return aux;
+    }
+    translate3D(vector, dx, dy,dz) {
+        // M*v == translatada 
+        var objLA = new LinearAlgebra()
+        var aux2;
+        var v = [
+            [vector[0]],
+            [vector[1]],
+            [vector[2]],
+            [1]
+        ]
+        var T = [
+            [1, 0, 0, dx],
+            [0, 1, 0, dy],
+            [0, 0, 1, dz],
+            [0, 0, 0, 1]
+        ]
+        aux2 = [objLA.dot(T, v)[0][0], objLA.dot(T, v)[1][0], objLA.dot(T, v)[2][0]]
+        return aux2;
+    }
 
     reflection2DX(matriz) {
         var elements = [
@@ -212,3 +251,16 @@ console.log("3DX = " + transf.reflection3DX(elements2))
 console.log("3DY = " + transf.reflection3DY(elements2))
 console.log("3DZ = " + transf.reflection3DZ(elements2))
 */
+
+//exemplos translate 
+// var vector2d = new Vector(2,[2, 4]);
+// var vector3d = new Vector(3, [4, 6, 9]);
+// var transf = new Tranformations();
+
+// var vector2d = vector2d.criador();
+// var vector3d = vector3d.criador();
+
+// //exemplo translate 3D
+// console.log(transf.translate3D(vector3d, 2, 2 ,2));
+// //exemplo translate 2D
+// console.log(transf.translate2D(vector2d,3 ,2))
