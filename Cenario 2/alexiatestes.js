@@ -159,7 +159,11 @@ class Tranformations {
         var sin = Math.sin(angulo).toFixed(3);
         var cos = Math.cos(angulo).toFixed(3);
 
-        var canonicaMatrix = new Matrix(4, 4, [1, 0, 0, 0, 0, cos, -sin, 0, 0, sin, cos, 0, 0, 0, 0, 1]);
+        var canonicaMatrix = new Matrix(4, 4, [1, 0, 0, 0],
+            [0, cos, -sin, 0, ],
+            [0, sin, cos, 0],
+            [0, 0, 0, 1]);
+
         return this.basicOperations(vector, canonicaMatrix);
     }
 
@@ -167,8 +171,19 @@ class Tranformations {
         var angulo = angle;
         var sin = Math.sin(angulo).toFixed(3);
         var cos = Math.cos(angulo).toFixed(3);
+        var v = [
+            [vector[0]],
+            [vector[1]],
+            [vector[2]],
+            [1]
+        ]
 
-        var canonicaMatrix = new Matrix(4, 4, [cos, 0, -sin, 0, 0, 1, 0, 0, sin, 0, cos, 0, 0, 0, 0, 1]);
+        var canonicaMatrix = new Matrix(4, 4, [
+            [cos, 0, -sin, 0],
+            [0, 1, 0, 0],
+            [sin, 0, cos, 0],
+            [0, 0, 0, 1]
+        ]);
         return this.basicOperations(vector, canonicaMatrix);
     }
 
@@ -176,8 +191,19 @@ class Tranformations {
         var angulo = angle;
         var sin = Math.sin(angulo).toFixed(3);
         var cos = Math.cos(angulo).toFixed(3);
+        var v = [
+            [vector[0]],
+            [vector[1]],
+            [vector[2]],
+            [1]
+        ]
 
-        var canonicaMatrix = new Matrix(4, 4, [cos, -sin, 0, 0, sin, cos, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]);
+        var canonicaMatrix = new Matrix(4, 4, [
+            [cos, -sin, 0, 0],
+            [sin, cos, 0, 0],
+            [0, 0, 1, 0],
+            [0, 0, 0, 1]
+        ]);
         return this.basicOperations(vector, canonicaMatrix);
     }
 

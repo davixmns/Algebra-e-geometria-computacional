@@ -66,7 +66,6 @@ class LinearAlgebra {
 
     }
 }
-
 class Tranformations {
     shearing(vector, ky, kx) {
         // T*vector 
@@ -123,18 +122,7 @@ class Tranformations {
 
 var vector = new Vector(2, [1, 2]);
 var transf = new Tranformations();
-
 var vetor = vector.criador()
 
 //console.log(transf.shearing(vetor, 0, 2))
-console.log(transf.translate2D(vetor, 2, 2))
-
-// class Translate {}
-
-// class Rotation {}
-
-// class Reflection {}
-
-// class Projection {}
-
-// class Shearing {} OK 
+//console.log(transf.translate2D(vetor, 2, 2))
