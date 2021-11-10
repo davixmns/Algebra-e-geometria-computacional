@@ -6,22 +6,7 @@
 
 class LinearAlgebra {
 
-    times(a, b) {
-        var resultado = [];
-        for (var i = 0; i < a.length; i++) {
-            resultado[i] = [];
-            for (var j = 0; j < b[0].length; j++) {
-                var soma = 0;
-                for (var k = 0; k < a[0].length; k++) {
-                    soma += a[i][k] * b[k][j];
-                }
-                resultado[i][j] = soma;
-            }
-        }
-        return resultado;
-    }
-
-        dot(a, b) {
+    dot(a, b) {
 
 
         if (Array.isArray(a) == true && Array.isArray(b) == true && a[0].length != undefined && b[0].length != undefined) {
@@ -62,41 +47,45 @@ class LinearAlgebra {
 class Vector {
 
     constructor(dim, elements) { //dim = dimensão do array | elements = elementos
-      this.dim = dim
-      this.elements = elements
-    }
-}
-
-class Matrix {
-    //rows = linhas, coluns = colunas, elements= elementos
-
-    constructor(rows, cols, elements) {
-        this.rows = rows;
-        this.cols = cols
+        this.dim = dim
         this.elements = elements
-        this.m = 0
+    }
+
+    criador() {
+        if (this.elements.length == this.dim) {
+            var v = []
+            var j = 0;
+            for (var i = 0; i < this.dim; i++) {
+                v[i] = this.elements[j]
+                j++
+            }
+            return this.v = v
+        } else {
+            console.log("Parâmetro inválido");
+        }
 
     }
+
+    get(i) {
+        if (i > this.dim) {
+            return console.log("Parâmetro inválido")
+        } else {
+            return this.v[i]
+        }
+    }
+    set(i, value) {
+        if (i > this.dim) {
+            return console.log("Parâmetro inválido")
+        } else {
+            this.v[i] = value
+        }
+    }
 }
+
+
 
 class Tranformations {
 
-      basicOperations(vector, canonicaMatrix) {
-        let c = vector;
-
-        let value = [];
-
-        for(let i = 0; i < c.size; i++) {
-            value.push(c.values[i]);
-        }
-        value.push(c.values[1]);
-
-        let d = new Vector(c.size+1, value);
-        let linAlg = new LinearAlgebra;
-        d = linAlg.dot(canonicaMatrix, d);
-        d.values.pop();
-        return d;
-    }
 
     reflection2DX(matriz) {
         var elements = [
@@ -144,67 +133,78 @@ class Tranformations {
         return objLA.times(elements, matriz)
     }
 
-      rotation2D(vector, angle) {
-      let degrees = angle;
-      let sin = Math.sin(degrees).toFixed(3);
-      let cos = Math.cos(degrees).toFixed(3);
+    rotation2D(vector, angle) {
+        var angulo = angle;
+        var objLA = new LinearAlgebra()
+        var aux;
+        var sin = Math.sin(angulo).toFixed(3);
+        var cos = Math.cos(angulo).toFixed(3);
+        var v = [
+            [vector[0]],
+            [vector[1]],
+        ]
+        var T = [
 
-      let canonicaMatrix = new Matrix(3,3,[cos,-sin,0,sin,cos,0,0,0,1]);
-      
-      return this.basicOperations(vector, canonicaMatrix);
+            [cos, -sin],
+            [sin, cos]
+
+        ]
+        aux = [objLA.dot(T, v)[0][0], objLA.dot(T, v)[1][0]]
+        return aux;
+
     }
 
     rotation3Dx(vector, angle) {
-        let degrees = angle;
-        let sin = Math.sin(degrees).toFixed(3);
-        let cos = Math.cos(degrees).toFixed(3);
+        var angulo = angle;
+        var sin = Math.sin(angulo).toFixed(3);
+        var cos = Math.cos(angulo).toFixed(3);
 
-        let canonicaMatrix = new Matrix(4,4,[1,0,0,0,0,cos,-sin,0,0,sin,cos,0,0,0,0,1]);
+        var canonicaMatrix = new Matrix(4, 4, [1, 0, 0, 0, 0, cos, -sin, 0, 0, sin, cos, 0, 0, 0, 0, 1]);
         return this.basicOperations(vector, canonicaMatrix);
     }
 
-    rotation3Dy(vector, angle) {       
-        let degrees = angle;
-        let sin = Math.sin(degrees).toFixed(3);
-        let cos = Math.cos(degrees).toFixed(3);
+    rotation3Dy(vector, angle) {
+        var angulo = angle;
+        var sin = Math.sin(angulo).toFixed(3);
+        var cos = Math.cos(angulo).toFixed(3);
 
-        let canonicaMatrix = new Matrix(4,4,[cos,0,-sin,0,0,1,0,0,sin,0,cos,0,0,0,0,1]);
+        var canonicaMatrix = new Matrix(4, 4, [cos, 0, -sin, 0, 0, 1, 0, 0, sin, 0, cos, 0, 0, 0, 0, 1]);
         return this.basicOperations(vector, canonicaMatrix);
     }
 
     rotation3Dz(vector, angle) {
-        let degrees = angle;
-        let sin = Math.sin(degrees).toFixed(3);
-        let cos = Math.cos(degrees).toFixed(3);
+        var angulo = angle;
+        var sin = Math.sin(angulo).toFixed(3);
+        var cos = Math.cos(angulo).toFixed(3);
 
-        let canonicaMatrix = new Matrix(4,4,[cos,-sin,0,0,sin,cos,0,0,0,0,1,0,0,0,0,1]);
+        var canonicaMatrix = new Matrix(4, 4, [cos, -sin, 0, 0, sin, cos, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]);
         return this.basicOperations(vector, canonicaMatrix);
     }
 
-     projection2Dx(vector){
-        let canonicaMatrix = new Matrix(3,3,[1,0,0,0,0,0,0,0,1]);
-
-        return this.basicOperations(vector, canonicaMatrix);
-    }
-
-    projection2Dy(vector){
-        let canonicaMatrix = new Matrix(3,3,[0,0,0,0,1,0,0,0,1]);
+    projection2Dx(vector) {
+        var canonicaMatrix = new Matrix(3, 3, [1, 0, 0, 0, 0, 0, 0, 0, 1]);
 
         return this.basicOperations(vector, canonicaMatrix);
     }
 
-    projection3Dxy(vector){
-        let canonicaMatrix = new Matrix(4,4,[1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,1]);
+    projection2Dy(vector) {
+        var canonicaMatrix = new Matrix(3, 3, [0, 0, 0, 0, 1, 0, 0, 0, 1]);
+
         return this.basicOperations(vector, canonicaMatrix);
     }
 
-    projection3Dyz(vector){
-        let canonicaMatrix = new Matrix(4,4,[0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1]);
+    projection3Dxy(vector) {
+        var canonicaMatrix = new Matrix(4, 4, [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1]);
         return this.basicOperations(vector, canonicaMatrix);
     }
 
-    projection3Dxz(vector){
-        let canonicaMatrix = new Matrix(4,4,[1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1]);
+    projection3Dyz(vector) {
+        var canonicaMatrix = new Matrix(4, 4, [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]);
+        return this.basicOperations(vector, canonicaMatrix);
+    }
+
+    projection3Dxz(vector) {
+        var canonicaMatrix = new Matrix(4, 4, [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]);
         return this.basicOperations(vector, canonicaMatrix);
     }
 
@@ -242,30 +242,8 @@ class Tranformations {
     }
 }
 
-// EXEMPLOS DA CLASSE CISALHAMENTO
-/*
+
 var vector = new Vector(2, [1, 2]);
 var transf = new Tranformations();
 var vetor = vector.criador()
-console.log(transf.shearing(vetor, 0, 2))
-*/
-
-// EXEMPLOS DA CLASSE REFLECTION
-/*
-var elements1 = [
-    [10],
-    [10]
-]
-var elements2 = [
-    [10],
-    [10],
-    [10]
-]
-
-var transf = new Tranformations()
-console.log("2DX = " + transf.reflection2DX(elements1))
-console.log("2DY = " + transf.reflection2DY(elements1))
-console.log("3DX = " + transf.reflection3DX(elements2))
-console.log("3DY = " + transf.reflection3DY(elements2))
-console.log("3DZ = " + transf.reflection3DZ(elements2))
-*/
+console.log(transf.rotation2D(vetor, 30))
