@@ -1,7 +1,7 @@
 // Translate() OK Bruno
-// Rotation()  Alexia
+// Rotation() OK Alexia
 // Reflection() OK Davi
-// Projection()  Vinicius 
+// Projection() OK Vinicius 
 // Shearing() OK Tarcizo 
 
 class LinearAlgebra {
@@ -180,6 +180,190 @@ class Tranformations {
         return aux;
     }
 
+    rotation2D(vector, angle) {
+        var angulo = angle;
+        var objLA = new LinearAlgebra()
+        var aux;
+        var sin = Math.sin(angulo).toFixed(3);
+        var cos = Math.cos(angulo).toFixed(3);
+        var v = [
+            [vector[0]],
+            [vector[1]],
+        ]
+        var T = [
+
+            [cos, -sin],
+            [sin, cos]
+
+        ]
+        aux = [objLA.dot(T, v)[0][0], objLA.dot(T, v)[1][0]]
+        return aux;
+
+    }
+
+    rotation3Dx(vector, angle) {
+        var angulo = angle;
+        var objLA = new LinearAlgebra()
+        var sin = Math.sin(angulo).toFixed(3);
+        var cos = Math.cos(angulo).toFixed(3);
+        var aux;
+        var v = [
+            [vector[0]],
+            [vector[1]],
+            [vector[2]],
+            [1]
+        ]
+        var T = [
+            [1, 0, 0, 0],
+            [0, cos, -sin, 0, ],
+            [0, sin, cos, 0],
+            [0, 0, 0, 1]
+        ];
+
+        aux = [objLA.dot(T, v)[0][0], objLA.dot(T, v)[1][0], objLA.dot(T, v)[2][0]]
+        return aux;
+    }
+
+    rotation3Dy(vector, angle) {
+        var angulo = angle;
+        var sin = Math.sin(angulo).toFixed(3);
+        var cos = Math.cos(angulo).toFixed(3);
+        var objLA = new LinearAlgebra()
+        var aux;
+        var v = [
+            [vector[0]],
+            [vector[1]],
+            [vector[2]],
+            [1]
+        ]
+
+        var T = [
+            [cos, 0, -sin, 0],
+            [0, 1, 0, 0],
+            [sin, 0, cos, 0],
+            [0, 0, 0, 1]
+        ]
+        aux = [objLA.dot(T, v)[0][0], objLA.dot(T, v)[1][0], objLA.dot(T, v)[2][0]]
+        return aux;
+    }
+
+    rotation3Dz(vector, angle) {
+        var angulo = angle;
+        var sin = Math.sin(angulo).toFixed(3);
+        var cos = Math.cos(angulo).toFixed(3);
+        var objLA = new LinearAlgebra()
+        var aux;
+        var v = [
+            [vector[0]],
+            [vector[1]],
+            [vector[2]],
+            [1]
+        ]
+
+        var T = [
+            [cos, -sin, 0, 0],
+            [sin, cos, 0, 0],
+            [0, 0, 1, 0],
+            [0, 0, 0, 1]
+        ]
+        aux = [objLA.dot(T, v)[0][0], objLA.dot(T, v)[1][0], objLA.dot(T, v)[2][0]]
+        return aux;
+    }
+
+    projection2Dx(vector) {
+      var aux;
+      var objLA = new LinearAlgebra()
+        var v = [
+            [vector[0]],
+            [vector[1]],
+            [1]
+        ]
+        var T = [
+            [1, 0, 0],
+            [0, 0, 0],
+            [0, 0, 1]
+        ]
+
+        aux = [objLA.dot(T, v)[0][0], objLA.dot(T, v)[1][0], objLA.dot(T, v)[2][0]]
+        return aux;
+    }
+
+    projection2Dy(vector) {
+      var aux;
+      var objLA = new LinearAlgebra()
+        var v = [
+            [vector[0]],
+            [vector[1]],
+            [1]
+        ]
+        var T = [
+            [0, 0, 0],
+            [0, 1, 0],
+            [0, 0, 1]
+        ]
+
+        aux = [objLA.dot(T, v)[0][0], objLA.dot(T, v)[1][0], objLA.dot(T, v)[2][0]]
+        return aux;
+    }
+
+    projection3Dxy(vector) {
+      var aux;
+      var objLA = new LinearAlgebra()
+        var v = [
+            [vector[0]],
+            [vector[1]],
+            [vector[2]],
+            [1]
+        ]
+        var T = [
+            [1, 0, 0, 0],
+            [0, 1, 0, 0],
+            [0, 0, 0, 0],
+            [0, 0, 0, 1]
+        ]
+
+        aux = [objLA.dot(T, v)[0][0], objLA.dot(T, v)[1][0], objLA.dot(T, v)[2][0]]
+        return aux;
+    }
+
+    projection3Dyz(vector) {
+      var aux;
+      var objLA = new LinearAlgebra()
+        var v = [
+            [vector[0]],
+            [vector[1]],
+            [vector[2]],
+            [1]
+        ]
+        var T = [
+            [0, 0, 0, 0],
+            [0, 1, 0, 0],
+            [0, 0, 1, 0],
+            [0, 0, 0, 1]
+        ]
+        aux = [objLA.dot(T, v)[0][0], objLA.dot(T, v)[1][0], objLA.dot(T, v)[2][0]]
+        return aux;
+    }
+
+    projection3Dxz(vector) {
+      var aux;
+      var objLA = new LinearAlgebra()
+        var v = [
+            [vector[0]],
+            [vector[1]],
+            [vector[2]],
+            [1]
+        ]
+        var T = [
+            [1, 0, 0, 0],
+            [0, 0, 0, 0],
+            [0, 0, 1, 0],
+            [0, 0, 0, 1]
+        ]
+        aux = [objLA.dot(T, v)[0][0], objLA.dot(T, v)[1][0], objLA.dot(T, v)[2][0]]
+        return aux;
+    }
+
     shearing(vector, ky, kx) {
         // T*vector 
         var v = [
@@ -254,3 +438,39 @@ console.log(transf.translate3D(vector3d, 2, 2 ,2));
 //---------> EXEMPLO TRANSLATE 2D
 console.log(transf.translate2D(vector2d,3 ,2))
 */
+
+/* EXEMPLOS DO MÉTODO ROTATE
+
+var vector2d = new Vector(2, [5, 6]);
+var transf = new Tranformations();
+var vetor = vector2d.criador()
+console.log(transf.rotation2D(vetor, 200))
+
+var vector3d = new Vector(3, [5, 6, 7]);
+var transf = new Tranformations();
+var vetor = vector3d.criador()
+console.log(transf.rotation3Dx(vetor, 500))
+console.log(transf.rotation3Dy(vetor, 500))
+console.log(transf.rotation3Dz(vetor, 500))
+*/
+
+/* EXEMPLOS DO MÉTODO PROJECTION 
+
+var vector2d = new Vector(2, [5, 6]);
+var transf = new Tranformations();
+var vetor = vector2d.criador()
+console.log(transf.projection2Dx(vetor))
+console.log(transf.projection2Dy(vetor))
+
+var vector3d = new Vector(3, [5, 6, 7]);
+var transf = new Tranformations();
+var vetor = vector3d.criador()
+console.log(transf.projection3Dxy(vetor))
+console.log(transf.projection3Dyz(vetor))
+console.log(transf.projection3Dxz(vetor))
+*/
+
+
+
+
+
