@@ -245,17 +245,12 @@ console.log("3DZ = " + transf.reflection3DZ(elements2))
 // EXEMPLOS DO MÉTODO TRANSLATE
 /*
 var vector2d = new Vector(2,[2, 4]);
-var vector2d = vector2d.criador();
 var vector3d = new Vector(3, [4, 6, 9]);
-var vector3d = vector3d.criador();
 var transf = new Tranformations();
-//exemplo translate 3D
+var vector2d = vector2d.criador();
+var vector3d = vector3d.criador();
+//---------> EXEMPLO TRANSLATE 3D
 console.log(transf.translate3D(vector3d, 2, 2 ,2));
-//exemplo translate 2D
-console.log(transf.translate2D(vector2d,3 ,2));
+//---------> EXEMPLO TRANSLATE 2D
+console.log(transf.translate2D(vector2d,3 ,2))
 */
-// ----- > Translate 2D
-// var vector = new Vector(2, [3, 4]);
-// var transf = new Tranformations();
-// var vetor = vector.criador()
-// console.log(transf.translate2D(vetor, 2, 2))
