@@ -1,9 +1,3 @@
-// Translate() OK Bruno
-// Rotation() OK Alexia
-// Reflection() OK Davi
-// Projection() OK Vinicius 
-// Shearing() OK Tarcizo 
-
 class LinearAlgebra {
     //operaçoes
     dot(a, b) {
