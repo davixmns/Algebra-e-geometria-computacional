@@ -194,24 +194,6 @@ class Tranformations {
         return objLA.dot(elements, matriz)
     }
 
-    translate2D(vector, dx, dy) {
-        // M*v == translatada 
-        var objLA = new LinearAlgebra()
-        var aux;
-        var v = [
-            [vector[0]],
-            [vector[1]],
-            [1]
-        ]
-        var T = [
-            [1, 0, dx],
-            [0, 1, dy],
-            [0, 0, 1]
-        ]
-        aux = [objLA.dot(T, v)[0][0], objLA.dot(T, v)[1][0]]
-        return aux;
-    }
-
     rotation2D(vector, angle) {
         var angulo = angle;
         var objLA = new LinearAlgebra()
@@ -401,10 +383,10 @@ class Tranformations {
 
 
 //  EXEMPLO METODO CISALHAMENTO
-// var vector = new Vector(2, [1, 2]);
-// var transf = new Tranformations();
-// var vetor = vector.criador()
-// console.log(transf.shearing(vetor, 2, 0))
+//  var vector = new Vector(2, [1, 2]);
+//  var transf = new Tranformations();
+//  var vetor = vector.criador()
+//  console.log(transf.shearing(vetor, 2, 0))
 
 
 
