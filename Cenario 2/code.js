@@ -1,8 +1,8 @@
-// class Translate {} OK Bruno
-// class Rotation {} Alexia
-// class Reflection {} OK Davi
-// class Projection {} Vinicius 
-// class Shearing {} OK Tarcizo 
+// Translate() OK Bruno
+// Rotation()  Alexia
+// Reflection() OK Davi
+// Projection()  Vinicius 
+// Shearing() OK Tarcizo 
 
 class LinearAlgebra {
     //operaçoes
@@ -214,7 +214,7 @@ class Tranformations {
     }
 }
 
-// EXEMPLOS DA CLASSE CISALHAMENTO
+// EXEMPLOS DO MÉTODO SHEARING
 
 // var vector = new Vector(2, [1, 2]);
 // var transf = new Tranformations();
@@ -223,17 +223,7 @@ class Tranformations {
 
 
 
-// EXEMPLOS DA CLASSE TRANSLATE
-
-// ----- > Translate 2D
-// var vector = new Vector(2, [3, 4]);
-// var transf = new Tranformations();
-// var vetor = vector.criador()
-// console.log(transf.translate2D(vetor, 2, 2))
-
-
-
-// EXEMPLOS DA CLASSE REFLECTION
+// EXEMPLOS DO MÉTODO REFLECTION
 /*
 var elements1 = [
     [10],
@@ -252,7 +242,7 @@ console.log("3DY = " + transf.reflection3DY(elements2))
 console.log("3DZ = " + transf.reflection3DZ(elements2))
 */
 
-// EXEMPLOS DA CLASSE TRANSLATE
+// EXEMPLOS DO MÉTODO TRANSLATE
 /*
 var vector2d = new Vector(2,[2, 4]);
 var vector2d = vector2d.criador();
@@ -264,3 +254,8 @@ console.log(transf.translate3D(vector3d, 2, 2 ,2));
 //exemplo translate 2D
 console.log(transf.translate2D(vector2d,3 ,2));
 */
+// ----- > Translate 2D
+// var vector = new Vector(2, [3, 4]);
+// var transf = new Tranformations();
+// var vetor = vector.criador()
+// console.log(transf.translate2D(vetor, 2, 2))
