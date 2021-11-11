@@ -440,17 +440,18 @@ console.log(transf.translate3D(vector3d, 2, 2 ,2));
 console.log(transf.translate2D(vector2d,3 ,2))
 */
 
-/* EXEMPLOS DO MÉTODO ROTATE
+// EXEMPLOS DO MÉTODO ROTATE
+/*
 var vector2d = new Vector(2, [5, 6]);
 var transf = new Tranformations();
 var vetor = vector2d.criador()
-console.log(transf.rotation2D(vetor, 200))
+console.log(transf.rotation2D(vetor, 60))
 var vector3d = new Vector(3, [5, 6, 7]);
 var transf = new Tranformations();
 var vetor = vector3d.criador()
-console.log(transf.rotation3Dx(vetor, 500))
-console.log(transf.rotation3Dy(vetor, 500))
-console.log(transf.rotation3Dz(vetor, 500))
+console.log(transf.rotation3Dx(vetor, 30))
+console.log(transf.rotation3Dy(vetor, 30))
+console.log(transf.rotation3Dz(vetor, 30))
 */
 
 /* EXEMPLOS DO MÉTODO PROJECTION 
