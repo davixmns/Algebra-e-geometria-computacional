@@ -252,15 +252,15 @@ console.log("3DY = " + transf.reflection3DY(elements2))
 console.log("3DZ = " + transf.reflection3DZ(elements2))
 */
 
-//exemplos translate 
-// var vector2d = new Vector(2,[2, 4]);
-// var vector3d = new Vector(3, [4, 6, 9]);
-// var transf = new Tranformations();
-
-// var vector2d = vector2d.criador();
-// var vector3d = vector3d.criador();
-
-// //exemplo translate 3D
-// console.log(transf.translate3D(vector3d, 2, 2 ,2));
-// //exemplo translate 2D
-// console.log(transf.translate2D(vector2d,3 ,2))
+// EXEMPLOS DA CLASSE TRANSLATE
+/*
+var vector2d = new Vector(2,[2, 4]);
+var vector2d = vector2d.criador();
+var vector3d = new Vector(3, [4, 6, 9]);
+var vector3d = vector3d.criador();
+var transf = new Tranformations();
+//exemplo translate 3D
+console.log(transf.translate3D(vector3d, 2, 2 ,2));
+//exemplo translate 2D
+console.log(transf.translate2D(vector2d,3 ,2));
+*/
