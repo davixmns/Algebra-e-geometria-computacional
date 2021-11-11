@@ -96,7 +96,7 @@ class Tranformations {
         aux = [objLA.dot(T, v)[0][0], objLA.dot(T, v)[1][0]]
         return aux;
     }
-    translate3D(vector, dx, dy,dz) {
+    translate3D(vector, dx, dy, dz) {
         // M*v == translatada 
         var objLA = new LinearAlgebra()
         var aux2;
@@ -271,8 +271,8 @@ class Tranformations {
     }
 
     projection2Dx(vector) {
-      var aux;
-      var objLA = new LinearAlgebra()
+        var aux;
+        var objLA = new LinearAlgebra()
         var v = [
             [vector[0]],
             [vector[1]],
@@ -284,13 +284,13 @@ class Tranformations {
             [0, 0, 1]
         ]
 
-        aux = [objLA.dot(T, v)[0][0], objLA.dot(T, v)[1][0], objLA.dot(T, v)[2][0]]
+        aux = [objLA.dot(T, v)[0][0], objLA.dot(T, v)[1][0]]
         return aux;
     }
 
     projection2Dy(vector) {
-      var aux;
-      var objLA = new LinearAlgebra()
+        var aux;
+        var objLA = new LinearAlgebra()
         var v = [
             [vector[0]],
             [vector[1]],
@@ -307,8 +307,8 @@ class Tranformations {
     }
 
     projection3Dxy(vector) {
-      var aux;
-      var objLA = new LinearAlgebra()
+        var aux;
+        var objLA = new LinearAlgebra()
         var v = [
             [vector[0]],
             [vector[1]],
@@ -327,8 +327,8 @@ class Tranformations {
     }
 
     projection3Dyz(vector) {
-      var aux;
-      var objLA = new LinearAlgebra()
+        var aux;
+        var objLA = new LinearAlgebra()
         var v = [
             [vector[0]],
             [vector[1]],
@@ -346,8 +346,8 @@ class Tranformations {
     }
 
     projection3Dxz(vector) {
-      var aux;
-      var objLA = new LinearAlgebra()
+        var aux;
+        var objLA = new LinearAlgebra()
         var v = [
             [vector[0]],
             [vector[1]],
@@ -454,7 +454,7 @@ console.log(transf.rotation3Dy(vetor, 500))
 console.log(transf.rotation3Dz(vetor, 500))
 */
 
-/* EXEMPLOS DO MÉTODO PROJECTION 
+
 
 var vector2d = new Vector(2, [5, 6]);
 var transf = new Tranformations();
@@ -465,12 +465,6 @@ console.log(transf.projection2Dy(vetor))
 var vector3d = new Vector(3, [5, 6, 7]);
 var transf = new Tranformations();
 var vetor = vector3d.criador()
-console.log(transf.projection3Dxy(vetor))
-console.log(transf.projection3Dyz(vetor))
-console.log(transf.projection3Dxz(vetor))
-*/
-
-
-
-
-
+// console.log(transf.projection3Dxy(vetor))
+// console.log(transf.projection3Dyz(vetor))
+// console.log(transf.projection3Dxz(vetor))
