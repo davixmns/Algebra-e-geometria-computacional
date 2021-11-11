@@ -284,7 +284,7 @@ class Tranformations {
             [0, 0, 1]
         ]
 
-        aux = [objLA.dot(T, v)[0][0], objLA.dot(T, v)[1][0], objLA.dot(T, v)[2][0]]
+        aux = [objLA.dot(T, v)[0][0], objLA.dot(T, v)[1][0]]
         return aux;
     }
 
@@ -302,7 +302,7 @@ class Tranformations {
             [0, 0, 1]
         ]
 
-        aux = [objLA.dot(T, v)[0][0], objLA.dot(T, v)[1][0], objLA.dot(T, v)[2][0]]
+        aux = [objLA.dot(T, v)[0][0], objLA.dot(T, v)[1][0]]
         return aux;
     }
 
@@ -440,12 +440,10 @@ console.log(transf.translate2D(vector2d,3 ,2))
 */
 
 /* EXEMPLOS DO MÉTODO ROTATE
-
 var vector2d = new Vector(2, [5, 6]);
 var transf = new Tranformations();
 var vetor = vector2d.criador()
 console.log(transf.rotation2D(vetor, 200))
-
 var vector3d = new Vector(3, [5, 6, 7]);
 var transf = new Tranformations();
 var vetor = vector3d.criador()
@@ -455,19 +453,15 @@ console.log(transf.rotation3Dz(vetor, 500))
 */
 
 /* EXEMPLOS DO MÉTODO PROJECTION 
-
 var vector2d = new Vector(2, [5, 6]);
 var transf = new Tranformations();
 var vetor = vector2d.criador()
 console.log(transf.projection2Dx(vetor))
 console.log(transf.projection2Dy(vetor))
-
 var vector3d = new Vector(3, [5, 6, 7]);
 var transf = new Tranformations();
 var vetor = vector3d.criador()
 console.log(transf.projection3Dxy(vetor))
 console.log(transf.projection3Dyz(vetor))
 console.log(transf.projection3Dxz(vetor))
-
-
 */
