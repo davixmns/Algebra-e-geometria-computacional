@@ -398,10 +398,12 @@ class Tranformations {
     }
 }
 
-var vector = new Vector(2, [1, 2]);
-var transf = new Tranformations();
-var vetor = vector.criador()
-console.log(transf.shearing(vetor, 2, 0))
+
+//  EXEMPLO METODO CISALHAMENTO
+// var vector = new Vector(2, [1, 2]);
+// var transf = new Tranformations();
+// var vetor = vector.criador()
+// console.log(transf.shearing(vetor, 2, 0))
 
 
 
