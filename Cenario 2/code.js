@@ -76,6 +76,38 @@ class Vector {
 }
 
 class Tranformations {
+    shearing(vector, ky, kx) {
+        // T*vector 
+        var v = [
+            [vector[0]],
+            [vector[1]]
+        ]
+        var cisy = [
+            [1, 0],
+            [1, ky]
+        ];
+        var cisx = [
+            [1, kx],
+            [0, 1]
+        ];
+        var objLA = new LinearAlgebra()
+        var aux;
+
+        if (ky > 0) {
+
+            aux = [objLA.dot(cisy, v)[0][0], objLA.dot(cisy, v)[1][0]]
+            return aux;
+
+        } else if (kx > 0) {
+
+            aux = [objLA.dot(cisx, v)[0][0], objLA.dot(cisx, v)[1][0]]
+            return aux;
+
+        } else {
+            return vector
+        }
+
+    }
     translate2D(vector, dx, dy) {
         // M*v == translatada 
         var objLA = new LinearAlgebra()
@@ -364,38 +396,7 @@ class Tranformations {
         return aux;
     }
 
-    shearing(vector, ky, kx) {
-        // T*vector 
-        var v = [
-            [vector[0]],
-            [vector[1]]
-        ]
-        var cisy = [
-            [1, 0],
-            [1, ky]
-        ];
-        var cisx = [
-            [1, kx],
-            [0, 1]
-        ];
-        var objLA = new LinearAlgebra()
-        var aux;
 
-        if (ky > 0) {
-
-            aux = [objLA.dot(cisy, v)[0][0], objLA.dot(cisy, v)[1][0]]
-            return aux;
-
-        } else if (kx > 0) {
-
-            aux = [objLA.dot(cisx, v)[0][0], objLA.dot(cisx, v)[1][0]]
-            return aux;
-
-        } else {
-            return vector
-        }
-
-    }
 }
 
 
