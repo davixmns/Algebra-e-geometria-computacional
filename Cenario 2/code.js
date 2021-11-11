@@ -284,7 +284,7 @@ class Tranformations {
             [0, 0, 1]
         ]
 
-        aux = [objLA.dot(T, v)[0][0], objLA.dot(T, v)[1][0]]
+        aux = [objLA.dot(T, v)[0][0], objLA.dot(T, v)[1][0], objLA.dot(T, v)[2][0]]
         return aux;
     }
 
@@ -383,12 +383,12 @@ class Tranformations {
 
         if (ky > 0) {
 
-            aux = [objLA.times(cisy, v)[0][0], objLA.times(cisy, v)[1][0]]
+            aux = [objLA.dot(cisy, v)[0][0], objLA.dot(cisy, v)[1][0]]
             return aux;
 
         } else if (kx > 0) {
 
-            aux = [objLA.times(cisx, v)[0][0], objLA.times(cisx, v)[1][0]]
+            aux = [objLA.dot(cisx, v)[0][0], objLA.dot(cisx, v)[1][0]]
             return aux;
 
         } else {
@@ -398,12 +398,10 @@ class Tranformations {
     }
 }
 
-// EXEMPLOS DO MÉTODO SHEARING
-
-// var vector = new Vector(2, [1, 2]);
-// var transf = new Tranformations();
-// var vetor = vector.criador()
-// console.log(transf.shearing(vetor, 2, 0))
+var vector = new Vector(2, [1, 2]);
+var transf = new Tranformations();
+var vetor = vector.criador()
+console.log(transf.shearing(vetor, 2, 0))
 
 
 
@@ -454,7 +452,7 @@ console.log(transf.rotation3Dy(vetor, 500))
 console.log(transf.rotation3Dz(vetor, 500))
 */
 
-
+/* EXEMPLOS DO MÉTODO PROJECTION 
 
 var vector2d = new Vector(2, [5, 6]);
 var transf = new Tranformations();
@@ -465,6 +463,9 @@ console.log(transf.projection2Dy(vetor))
 var vector3d = new Vector(3, [5, 6, 7]);
 var transf = new Tranformations();
 var vetor = vector3d.criador()
-// console.log(transf.projection3Dxy(vetor))
-// console.log(transf.projection3Dyz(vetor))
-// console.log(transf.projection3Dxz(vetor))
+console.log(transf.projection3Dxy(vetor))
+console.log(transf.projection3Dyz(vetor))
+console.log(transf.projection3Dxz(vetor))
+
+
+*/
